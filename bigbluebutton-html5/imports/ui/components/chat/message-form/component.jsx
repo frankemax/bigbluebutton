@@ -4,6 +4,8 @@ import { checkText } from 'smile2emoji';
 import deviceInfo from '/imports/utils/deviceInfo';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import Icon from '/imports/ui/components/icon/component';
+import EmojiPicker from '/imports/ui/components/emoji-picker/component';
 import TypingIndicatorContainer from './typing-indicator/container';
 import Styled from './styles';
 import { isChatEnabled } from '/imports/ui/services/features';
@@ -72,6 +74,7 @@ class MessageForm extends PureComponent {
       message: '',
       error: null,
       hasErrors: false,
+      showEmojiPicker: false,
     };
 
     this.handleMessageChange = this.handleMessageChange.bind(this);
@@ -252,7 +255,45 @@ class MessageForm extends PureComponent {
     const callback = this.typingIndicator ? stopUserTyping : null;
 
     handleSendMessage(msg);
-    this.setState({ message: '', hasErrors: false }, callback);
+    this.setState({
+      message: '',
+      hasErrors: false,
+      showEmojiPicker: false,
+    }, callback);
+  }
+
+  handleEmojiSelect = (emojiObject) => {
+    const { message } = this.state;
+    this.setState({ message: message + emojiObject.native });
+  };
+
+  renderEmojiPicker() {
+    const { showEmojiPicker } = this.state;
+    const { isMobile } = deviceInfo;
+
+    if (!isMobile && showEmojiPicker) {
+      return (
+        <EmojiPicker
+          onEmojiSelect={emojiObject => this.handleEmojiSelect(emojiObject)}
+        />
+      );
+    }
+    return null;
+  }
+
+  renderEmojiButton = () => {
+    const { showEmojiPicker } = this.state;
+
+    return (
+      <div
+        className={styles.emojiButtonWrapper}
+        onClick={() => { this.setState({ showEmojiPicker: !showEmojiPicker }) }}
+      >
+        <Icon
+          iconName="happy"
+        />
+      </div>
+    );
   }
 
   render() {
@@ -272,7 +313,9 @@ class MessageForm extends PureComponent {
         ref={(ref) => { this.form = ref; }}
         onSubmit={this.handleSubmit}
       >
+        {this.renderEmojiPicker()}
         <Styled.Wrapper>
+          {this.renderEmojiButton()}
           <Styled.Input
             id="message-input"
             innerRef={(ref) => { this.textarea = ref; return this.textarea; }}
