@@ -330,6 +330,7 @@ const WaitingUsers = (props) => {
               maxLength={128}
               placeholder={intl.formatMessage(intlMessages.inputPlaceholder)}
               send={setGuestLobbyMessage}
+              emojiPickerDown={true}
             />
             <p>
               <i>
