@@ -11,6 +11,12 @@ const propTypes = {
   onEmojiSelect: PropTypes.func.isRequired,
 };
 
+const emojisToExclude = [
+  "2640-FE0F",
+  "2642-FE0F",
+  "2695-FE0F",
+]
+
 function EmojiPicker(props) {
   const {
     intl,
@@ -54,6 +60,7 @@ function EmojiPicker(props) {
       emojiSize={20}
       emojiTooltip={true}
       i18n={i18n}
+      emojisToShowFilter={emojiObject => !emojisToExclude.some(code => code === emojiObject.unified)}
     />
   );
 }
