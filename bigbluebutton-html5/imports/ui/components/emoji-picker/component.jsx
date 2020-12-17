@@ -59,6 +59,7 @@ function EmojiPicker(props) {
       title=""
       emojiSize={20}
       emojiTooltip={true}
+      style={{ margin: '.5rem 0' }}
       i18n={i18n}
       emojisToShowFilter={emojiObject => !emojisToExclude.some(code => code === emojiObject.unified)}
     />
