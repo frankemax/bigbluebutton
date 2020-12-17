@@ -65,6 +65,7 @@ const messages = defineMessages({
 
 const CHAT_CONFIG = Meteor.settings.public.chat;
 const AUTO_CONVERT_EMOJI = Meteor.settings.public.chat.autoConvertEmoji;
+const EMOJI_BUTTON = Meteor.settings.public.app.enableEmojiButton;
 
 class MessageForm extends PureComponent {
   constructor(props) {
@@ -267,11 +268,17 @@ class MessageForm extends PureComponent {
     this.setState({ message: message + emojiObject.native });
   };
 
+  emojiEnabled() {
+    const { isMobile } = deviceInfo;
+
+    return EMOJI_BUTTON && !isMobile;
+  }
+
   renderEmojiPicker() {
     const { showEmojiPicker } = this.state;
     const { isMobile } = deviceInfo;
 
-    if (!isMobile && showEmojiPicker) {
+    if (this.emojiEnabled() && showEmojiPicker) {
       return (
         <EmojiPicker
           onEmojiSelect={emojiObject => this.handleEmojiSelect(emojiObject)}
@@ -284,16 +291,19 @@ class MessageForm extends PureComponent {
   renderEmojiButton = () => {
     const { showEmojiPicker } = this.state;
 
-    return (
-      <div
-        className={styles.emojiButtonWrapper}
-        onClick={() => { this.setState({ showEmojiPicker: !showEmojiPicker }) }}
-      >
-        <Icon
-          iconName="happy"
-        />
-      </div>
-    );
+    if (this.emojiEnabled()) {
+      return (
+        <div
+          className={styles.emojiButtonWrapper}
+          onClick={() => this.setState({ showEmojiPicker: !showEmojiPicker })}
+        >
+          <Icon
+            iconName="happy"
+          />
+        </div>
+      );
+    }
+    return null;
   }
 
   render() {

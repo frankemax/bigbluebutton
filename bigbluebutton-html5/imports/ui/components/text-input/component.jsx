@@ -6,6 +6,8 @@ import Icon from '/imports/ui/components/icon/component';
 import EmojiPicker from '/imports/ui/components/emoji-picker/component';
 import Styled from './styles';
 
+const EMOJI_BUTTON = Meteor.settings.public.app.enableEmojiButton;
+
 const propTypes = {
   placeholder: PropTypes.string,
   send: PropTypes.func.isRequired,
@@ -70,6 +72,10 @@ class TextInput extends PureComponent {
     this.setState({ message: message + emojiObject.native });
   }
 
+  emojiEnabled() {
+    return EMOJI_BUTTON && !this.mobile;
+  }
+
   renderEmojiPicker() {
     const { showEmojiPicker } = this.state;
     const { mobile } = browser();
@@ -85,6 +91,8 @@ class TextInput extends PureComponent {
   }
 
   renderEmojiButton = () => {
+    if (!this.emojiEnabled()) return null;
+
     const { showEmojiPicker } = this.state;
 
     return (
