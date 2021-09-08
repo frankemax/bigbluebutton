@@ -27,8 +27,8 @@
 }
 
 .systemMessage {
-  background: var(--systemMessage-background-color);
-  border: 1px solid var(--systemMessage-border-color);
+  background: var(--color-background-tertiary);
+  border: 1px solid var(--color-border-primary);
   border-radius: var(--border-radius);
   font-weight: var(--btn-font-weight);
   padding: var(--font-size-base);
@@ -82,7 +82,7 @@
 }
 
 .name {
-  color: var(--color-heading);
+  color: var(--color-text-quaternary);
 }
 
 .logout {
@@ -101,7 +101,7 @@
 }
 
 .offline {
-  color: var(--color-gray-light);
+  color: var(--color-text-primary);
   font-weight: 100;
   text-transform: lowercase;
   font-style: italic;
@@ -114,7 +114,7 @@
   flex-shrink: 0;
   flex-grow: 0;
   flex-basis: 3.5rem;
-  color: var(--color-gray-light);
+  color: var(--color-text-primary);
   text-transform: uppercase;
   font-size: 75%;
   margin: 0 0 0 calc(var(--line-height-computed) / 2);
@@ -138,7 +138,7 @@
   flex: 1;
   margin-top: calc(var(--line-height-computed) / 3);
   margin-bottom: 0;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   word-wrap: break-word;
 }
 

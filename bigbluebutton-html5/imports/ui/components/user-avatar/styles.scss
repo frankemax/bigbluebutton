@@ -6,11 +6,11 @@
  * ==========
  */
 :root {
-  --user-avatar-border: var(--color-gray-light);
-  --user-avatar-text: var(--color-white);
+  --user-avatar-border: var(--color-border-quaternary);
+  --user-avatar-text: var(--color-text-secondary);
   --user-indicator-voice-bg: var(--color-success);
   --user-indicator-muted-bg: var(--color-danger);
-  --user-list-bg: var(--color-off-white);
+  --user-list-bg: var(--color-background-tertiary);
   --user-color: currentColor; //picks the current color reference in the class
 }
 
@@ -136,7 +136,7 @@
 .noVoice {
   &:after {
     content: "";
-    background-color: var(--color-off-white);
+    // background-color: var(--color-background-secondary);
     top: 1.375rem;
     left: 1.375rem;
     right: auto;

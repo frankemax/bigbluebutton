@@ -104,7 +104,7 @@ $after-content-order: 3;
 }
 
 %dropZone {
-  border: 1px dashed var(--color-gray-light);
+  border: 1px dashed var(--color-icon-secondary);
   position: absolute;
   z-index: 9999;
 }

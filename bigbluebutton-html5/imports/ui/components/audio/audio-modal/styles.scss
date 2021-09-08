@@ -72,17 +72,17 @@
 
 .closeBtn {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
 
   i {
-    color: var(--color-gray-light);
+    color: var(--color-icon-secondary);
   }
 
   &:focus,
   &:hover {
-    background-color: var(--color-gray-lighter);
+    background-color: var(--color-background-quinary);
     i {
-      color: var(--color-gray);
+      color: var(--color-icon-secondary);
     }
   }
 }
@@ -105,7 +105,7 @@
 
 .audioBtn {
   i {
-    color: #3c5764;
+    color: var(--color-icon-tertiary);
   }
 }
 
@@ -118,9 +118,9 @@
 // Modifies the audio button icon colour
 .audioBtn span:first-child {
   color: #1b3c4b;
-  background-color: #f1f8ff;
+  background-color: var(--color-background-primary);
   box-shadow: none;
-  border: 5px solid #f1f8ff;
+  border: 5px solid var(--color-border-tertiary);
   font-size: 3.5rem;
 
   @include mq($small-only) {
@@ -132,12 +132,12 @@
 .audioBtn:hover span:first-child,
 .audioBtn:focus span:first-child {
   border: 5px solid var(--color-primary);
-  background-color: #f1f8ff;
+  background-color: var(--color-hover-primary);
 }
 
 // Modifies the button label text
 .audioBtn span:last-child {
-  color: black;
+  color: var(--color-text-primary);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -146,7 +146,7 @@
   text-align: center;
   font-weight: 400;
   font-size: 1.3rem;
-  color: var(--color-background);
+  color: var(--color-text-quaternary);
   white-space: normal;
 
   @include mq($small-only) {
@@ -187,7 +187,7 @@
 }
 
 .audioNote {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   display: inline-block;
   font-size: 0.9rem;
 }

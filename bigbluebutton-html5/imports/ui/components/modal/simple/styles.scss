@@ -9,12 +9,12 @@
   flex-direction: column;
   padding: calc(var(--line-height-computed) / 2) var(--line-height-computed);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  background-color: var(--color-white) !important;
+  background-color: var(--color-background-primary) !important;
 }
 
 .content {
   overflow: auto;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-weight: normal;
   padding: var(--line-height-computed) 0;
 }
@@ -26,7 +26,7 @@
 
 .header {
    padding: calc(var(--line-height-computed) / 2) 0;
-   border-bottom: var(--border-size) solid var(--color-gray-lighter);
+   border-bottom: var(--border-size) solid var(--color-border-quaternary);
 }
 
 .title {
@@ -34,6 +34,7 @@
   flex: 1;
   margin: 0;
   font-weight: 400;
+  color: var(--color-text-quaternary);
   font-size: var(--font-size-large);
   text-align: center;
   align-self: flex-end;
@@ -45,11 +46,11 @@
     border-color: transparent;
     background-color: transparent;
 
-    > i { color: var(--color-text); }
+    > i { color: var(--color-icon-secondary); }
   }
 }
 
 .overlay {
   @extend .overlay;
-  background-color: rgba(6, 23, 42, 0.75);
+  background-color: var(--color-background-overlay-modal);
 }

@@ -10,7 +10,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 
 .btnStyle > button > span > i {
-  color: var(--color-gray);
+  color: var(--color-icon-secondary);
   width: var(--lg-padding-x);
   height: var(--lg-padding-x);
   font-size: 170% !important;
@@ -19,7 +19,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 .subTitle {
   font-size: var(--font-size-base);
   text-align: justify;
-  color: var(--color-gray);
+  color: var(--color-text-primary);
 }
 
 .breakoutSettings {
@@ -41,15 +41,15 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 
 .labelText {
-  color: var(--color-gray);
+  color: var(--color-text-primary);
   white-space: nowrap;
   margin-bottom: .5rem;
 }
 .duration,
 .inputRooms {
-  background-color: var(--color-white);
-  color: var(--color-gray);
-  border: 1px solid var(--color-gray-lighter);
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-quaternary);
   border-radius: var(--border-radius);
   width: 100%;
   padding-top: .25rem;
@@ -62,14 +62,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   text-align: center;
   padding: .25rem;
   &::placeholder {
-    color: var(--color-gray);
+    color: var(--color-text-primary);
     opacity: 1;
   }
 }
 
 .iconsColor {
   cursor: pointer;
-  color: var(--color-gray-light);
+  color: var(--color-icon-secondary);
   font-size: var(--font-size-large);
   @include mq($small-only) {
     font-size: 2rem;
@@ -142,7 +142,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   height: 80%;
   min-height: 4rem;
   max-height: 8rem;
-  border: 1px solid var(--color-gray-lighter);
+  border: 1px solid var(--color-border-quaternary);
   border-radius: var(--border-radius); 
 }
 
@@ -176,7 +176,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 .selectedItem {
   background-color: var(--color-primary);
-  color: var(--color-white)
+  color: var(--color-text-secondary)
 }
 
 /* mobile */
@@ -188,7 +188,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 
 .itemTitle {
-  color: var(--color-blue-light);
+  color: var(--color-primary-light);
   margin: 0;
 }
 
@@ -201,7 +201,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   padding: 0;
   outline: none !important;
   span {
-    color: var(--color-blue-light);
+    color: var(--color-primary-light);
   }
 }
 
@@ -220,7 +220,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   display: block;
   height: 100vh;
   width: 100%;
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   z-index: 1002;
   top: 0;
   bottom: 0;
@@ -231,7 +231,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 .header {
   display: flex;
   padding: var(--line-height-computed) 0;
-  border-bottom: var(--border-size) solid var(--color-gray-lighter);
+  border-bottom: var(--border-size) solid var(--color-border-quaternary);
   margin: 0 1rem 0 1rem;
 }
 

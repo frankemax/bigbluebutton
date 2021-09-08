@@ -37,20 +37,21 @@
 
 .closeBtn {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
 
   i {
-    color: var(--color-gray-light);
+    color: var(--color-icon-secondary);
   }
 
   &:focus,
   &:hover{
-    background-color: var(--color-gray-lighter);
+    background-color: var(--color-hover-quaternary);
     i{
-      color: var(--color-gray);
+      color: var(--color-icon-secondary);
     }
   }
 }
+
 .warning{
   text-align: center;
   font-weight: var(--headings-font-weight);
@@ -73,10 +74,14 @@
   align-self: center;
   &:focus {
     outline: none !important;
+    color: var(--color-text-secondary);
+  }
+  &:focus {
+    outline: none !important;
   }
 
   i{
-    color: #3c5764;
+    color: var(--color-text-secondary);
   }
 
   margin: 0;
@@ -84,14 +89,15 @@
   display: block;
   position: absolute;
   bottom:   20px;
-  color: var(--color-white) !important;
-  background-color: var(--color-link) !important;
+  color: var(--color-text-secondary) /*!important*/;
+  background-color: var(--color-primary) /*!important*/;
 }
 
 .title {
   text-align: center;
   font-weight: 400;
   font-size: 1.3rem;
+  color: var(--color-text-quaternary);
   white-space: normal;
 
   @include mq(var(--small-only)) {
@@ -108,16 +114,17 @@
   }
 
   input {
-    @include inputFocus(var(--color-blue-light));
+    @include inputFocus(var(--color-primary-light));
     display: block;
     margin: 10px 0 10px 0;
     padding: 0.4em;
-    color: var(--color-text);
+    color: var(--color-text-primary);
+    background: var(--color-hover-tertiary);
     line-height: 2rem;
     width: 100%;
     font-family: inherit;
     font-weight: inherit;
-    border: 1px solid var(--color-gray-lighter);
+    border: 1px solid var(--color-border-quaternary);
     border-radius: var(--border-radius);
 
     :global(.animationsEnabled) & {
@@ -140,7 +147,7 @@
 }
 
 .externalVideoNote {
-  color: var(--color-gray);
+  color: var(--color-text-primary);
   font-size: var(--font-size-small);
   font-style: italic;
   padding-top: var(--sm-padding-y);

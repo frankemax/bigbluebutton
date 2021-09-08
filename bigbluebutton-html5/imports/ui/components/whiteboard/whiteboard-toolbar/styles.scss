@@ -3,17 +3,17 @@
 :root {
   --toolbar-margin: .8rem;
   --toolbar-box-shadow: 0 0 10px -2px rgba(0, 0, 0, .25);
-  --toolbar-button-color: var(--btn-default-color);
-  --toolbar-button-bg: var(--btn-default-bg);
+  --toolbar-button-color: var(--color-icon-tertiary);
+  --toolbar-button-bg: var(--color-whiteboard-background);
   --toolbar-button-width: 3rem;
   --toolbar-button-height: 3rem;
   --toolbar-button-font-size: 1.75rem;
   --toolbar-button-border: 1px;
   --toolbar-button-border-radius: 5px;
-  --toolbar-button-border-color: var(--color-gray-lighter);
-  --toolbar-list-bg: #ddd;
-  --toolbar-list-bg-focus: #c6c6c6;
-  --toolbar-list-color: var(--color-gray);
+  --toolbar-button-border-color: var(--color-border-quaternary);
+  --toolbar-list-bg: var(--color-hover-primary);
+  --toolbar-list-bg-focus: var(--color-hover-primary);
+  --toolbar-list-color: var(--color-icon-secondary);
   --toolbar-item-outline-offset: -.19rem;
   --toolbar-item-triangle-padding: 2px;
 }
@@ -225,6 +225,11 @@
 
   svg {
     fill: var(--toolbar-list-bg-focus);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #bbb;
   }
 }
 

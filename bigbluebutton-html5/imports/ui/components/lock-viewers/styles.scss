@@ -11,7 +11,7 @@
 .title {
   left: var(--title-position-left);
   right: auto;
-  color: var(--color-gray-dark);
+  color: var(--color-text-quaternary);
   font-weight: bold;
   font-size: var(--font-size-large);
   text-align: center;
@@ -25,7 +25,7 @@
 .form {
   display: flex;
   flex-flow: column;
-  border-bottom: 1px solid var(--color-gray-lighter);
+  border-bottom: 1px solid var(--color-border-quaternary);
 }
 
 .container {
@@ -37,7 +37,7 @@
   flex-flow: row;
   flex-grow: 1;
   justify-content: space-between;
-  color: var(--color-gray-label);
+  color: var(--color-text-primary);
   font-size: var(--font-size-base);
   margin-bottom: var(--title-position-left);
 }
@@ -53,7 +53,7 @@
 
 .description {
   text-align: center;
-  color: var(--color-gray);
+  color: var(--color-text-primary);
   margin-bottom: var(--jumbo-padding-y)
 }
 
@@ -85,7 +85,7 @@
 }
 
 .label {
-  color: var(--color-gray-label);
+  color: var(--color-text-primary);
   font-size: var(--font-size-small);
   margin-bottom: var(--lg-padding-y);
 }
@@ -109,7 +109,7 @@
 
 .closeBtn {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   left: var(--closeBtn-position-left);
   right: auto;
   bottom: var(--closeBtn-position-left);
@@ -120,14 +120,14 @@
   }
 
   i {
-    color: var(--color-gray-light);
+    color: var(--color-icon-secondary);
    }
 
   &:focus,
   &:hover {
-      background-color: var(--color-gray-lighter);
+      background-color: var(--color-hover-quaternary);
     i {
-      color: var(--color-gray);
+      color: var(--color-icon-secondary);
     }
   }
 }

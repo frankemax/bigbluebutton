@@ -1,33 +1,164 @@
 :root {
-  --color-white: #FFF;
-  --color-off-white: #F3F6F9;
 
-  --color-black: #000000;
-  --color-gray: #4E5A66;
-  --color-gray-dark: #06172A;
-  --color-gray-light: #8B9AA8;
-  --color-gray-darkest: #111111;
-  --color-gray-lighter: #a7b3bd;
-  --color-gray-lightest: #d4d9df;
-
+  // this old vars should not be used, they we'll be removed in a near future
+  // The best thing would be to stop using these variables and start using those created from line 23 onwards.
+  // For this, it is also necessary to update the scss variables of each component, so that it uses the new variables
+  // The motivation would be to use global variables for elements that are close or have the same behavior.
+  // With that, the part of having several customized themes is no longer a costly task
+   --color-white: #FFF;
+   --color-off-white: #F3F6F9;
+   --color-black: #000000;
+   --color-gray: #4E5A66;
+   --color-gray-dark: #06172A;
+   --color-gray-light: #8B9AA8;
+   --color-gray-darkest: #111111;
+   --color-gray-lighter: #a7b3bd;
+   --color-gray-lightest: #d4d9df;
   --color-blue-light: #54a1f3;
   --color-blue-lighter: #92BCEA;
   --color-blue-lightest: #E4ECF2;
+  --color-background: var(--color-gray-dark);
+  --color-text: var(--color-gray);
+  --color-heading: var(--color-gray-dark);
+  --color-link-hover: #2687ef;
+  --color-gray-label: var(--color-gray);
 
-  --color-primary: #0F70D7;
+ /*primary colors:
+  This color refers to special background buttons
+    -default: #0F70D7
+ */
+  --color-primary: #0F70D7; //0F70D7
+  --color-primary-light: #54a1f3;
+  --color-primary-lighter: #92BCEA;
+  --color-primary-lightest: #E4ECF2;
+/*
+  default: FFF
+  background:
+    -area
+    -modal simple,
+    -whiteboard
+    -icons,
+    -toast
+*/
+  --color-background-primary: #FFF;
+/*
+  default: #FFF
+  background:
+    -text chat / polls // 2nd panel,
+    -bottom bar of whiteboard
+*/
+  --color-background-secondary: #FFF; //FFF //background text chat, and bottom bar of whiteboard
+/*
+  default: #f3f6f9
+  background:
+    -user list
+    -dropdowns custom
+*/
+  --color-background-tertiary: #f3f6f9; //f3f6f9 //background user list and background for dropdowns custom
+/*
+  default: 06172a
+  background:
+    -loading screen
+*/
+  --color-background-quaternary: #06172a; //06172a // loading screen background
+/*
+  default: #4E5A66
+    -toast loading bar
+*/
+  --color-background-quinary: #4E5A66; //4E5A66 //toast loading bar,
+
+/*
+  default: #fff
+    -icon color for background dark
+    -loader icon
+    -some text buttons (needs refactor)
+*/
+  --color-icon-primary: #fff; //fff //icon for background dark, icon: loader, some text buttons ...
+
+/*
+  default: #4E5A66
+    -icon color for background light
+    -whiteboard icon selected
+    -audio buttons modal
+*/
+  --color-icon-secondary: #4E5A66;//4E5A66 //icon for background light, whiteboard icon selected and audio buttons modal
+
+/*
+  default: #3c5764
+    -darker icon for background light
+    -white board icon not selected
+    -bottom whiteboard icons
+    -loading icon screenshare
+*/
+  --color-icon-tertiary: #3c5764; //3c5764 //darker icon for background light, white board icon not selected, bottom whiteboard icons, loading icon screenshare
+
+/*
+  default: #000000
+    -fullscreen button icon (needs refactor), should be deleted, needs to be relocated
+*/
+  --color-icon-quaternary: #000000; //000000 fullscreen button icon?
+
+
+  --color-hover-primary: #dce4ed;
+  --color-hover-secondary: #0f70d7;
+  --color-hover-tertiary: #FFF;
+  --color-hover-quaternary: #a7b3bd;
+
+/*
+  default: dce4ed
+    -action bar buttons
+    -internal focus inputs
+*/
+  --color-border-primary: #dce4ed; //dce4ed // action bar buttons, internal focus inputs
+/*
+  default: 92bcea
+    -user list item panel few things
+*/
+  --color-border-secondary: #92bcea; //92bcea // user list item panel few things, can be merged
+/*
+  default: FFF
+    -border for outside dropdown label
+*/
+  --color-border-tertiary: #FFF; //FFF // border for outside dropdown label
+
+/*
+  default: 4E5A66
+    -input border shows everytime
+    -dropdown border-bottom
+    -whiteboard icons divisor
+    -divisor bar general
+*/
+  --color-border-quaternary: #4E5A66; //4E5A66 // input border shows everytime // dropdown border-bottom // whiteboard icons divisor // divisor general
+
+  //needs to be relocated
+  --color-whiteboard-background: #ffffff;
+
+/*
+  default: 4E5A66
+    -default text
+    -text for background light
+*/
+  --color-text-primary: #4E5A66; //4E5A66 //text for background light // default text
+
+/*
+  default: fff
+    -text for background dark
+    -text for background light
+*/
+  --color-text-secondary: #ffffff; //text for background dark // default text
+
+/*
+  default: 000
+    -text for titles
+*/
+  --color-text-quaternary: #000; //titles
+
   --color-success: #008081;
   --color-danger: #DF2721;
   --color-warning: purple;
 
-  --color-background: var(--color-gray-dark);
+  --color-link: #0F70D7FF; //#0F70D7FF
 
-  --color-text: var(--color-gray);
-  --color-heading: var(--color-gray-dark);
-
-  --color-link: var(--color-primary);
-  --color-link-hover: #2687ef;
-
-  --color-gray-label: var(--color-gray);
-
+  --color-background-overlay-modal: rgba(6, 23, 42, 0.75); // #000000BF; //rgba(6, 23, 42, 0.75);
   --color-transparent: #ff000000;
 }

@@ -10,9 +10,19 @@
 
 .closeBtn {
     position: relative;
-	> i {
-        color: var(--color-text);
-	}
+    background-color: var(--color-background-secondary);
+
+    i {
+        color: var(--color-icon-secondary);
+    }
+
+    &:focus,
+    &:hover{
+        background-color: var(--color-hover-quaternary);
+        i{
+            color: var(--color-icon-secondary);
+        }
+    }
 }
 
 .btn {
@@ -22,7 +32,7 @@
 
 .hideBtn {
     position: relative;
-    background-color: var(--color-white);
+    background-color: var(--color-background-secondary);
     display: block;
     margin: var(--border-size-large);
     margin-bottom: var(--border-size);
@@ -35,7 +45,7 @@
     }
 
     > i {
-        color: var(--color-gray-dark);
+        color: var(--color-icon-secondary);
         font-size: smaller;
 
         [dir="rtl"] & {
@@ -48,7 +58,7 @@
     }
 
     &:hover {
-        background-color: var(--color-white);
+        background-color: var(--color-hover-primary);
     }
   }
 
@@ -75,7 +85,7 @@
   }
 
   > input::placeholder {
-    color: var(--color-text);
+    color: var(--color-text-primary);
     opacity: 1; /* Firefox */
   }
 }
@@ -93,7 +103,7 @@
 .instructions {
     margin-top: var(--lg-padding-x);
     margin-bottom: var(--lg-padding-x);
-    color: var(--color-text);
+    color: var(--color-text-primary);
 }
 
 .grid {
@@ -132,7 +142,7 @@
 .customBtn:hover,
 .pollBtn:hover {
     box-shadow: 0 0 0 1px var(--poll-blue);
-    background-color: var(--color-white);
+    background-color: var(--color-background-primary);
     color: var(--poll-blue);
 
     > span {
@@ -145,12 +155,12 @@
 .pollBtn {
     margin-top: var(--sm-padding-y);
     margin-bottom: var(--sm-padding-y);
-    background-color: var(--color-white);
-    box-shadow: 0 0 0 1px var(--color-gray);
-    color: var(--color-gray);
+    background-color: var(--color-background-tertiary);
+    box-shadow: 0 0 0 1px var(--color-border-primary);
+    color: var(--color-text-primary);
 
     > span {
-        color: var(--color-gray);
+        color: var(--color-text-primary);
     }
 
     > span:hover {
@@ -165,7 +175,7 @@
         box-shadow: 0 0 0 1px var(--poll-blue);
     }
 
-    background-color: var(--color-white);
+    background-color: var(--color-background-primary);
     box-shadow: 0 0 0 1px var(--poll-blue);
 
     > span {
@@ -175,7 +185,7 @@
 
 .customBtn:focus,
 .pollBtn:focus {
-    background-color: var(--color-white);
+    background-color: var(--color-background-primary);
     box-shadow: 0 0 0 1px var(--poll-blue);
 
     > span {
@@ -184,7 +194,7 @@
 }
 
 .input {
-    @include inputFocus(var(--color-blue-light));
+    @include inputFocus(var(--color-primary-light));
  
     &:hover,
     &:focus {
@@ -196,10 +206,10 @@
     }
     
     margin: 0;
-    color: var(--color-text);
-    background: var(--color-white);
+    color: var(--color-text-primary);
+    background: var(--color-hover-tertiary);
     font-size: var(--font-size-small);
-    border: 1px solid var(--color-gray-lighter);
+    border: 1px solid var(--color-border-quaternary);
     border-radius: var(--border-radius);
     padding: .3rem * 1 .3rem * 0.25;
     padding-left: var(--lg-padding-y);

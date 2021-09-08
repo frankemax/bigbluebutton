@@ -6,24 +6,24 @@
  */
 
 :root {
-  --btn-default-color: var(--color-gray);
-  --btn-default-bg: var(--color-white);
-  --btn-default-border: var(--color-white);
+  --btn-default-color: var(--color-icon-secondary);
+  --btn-default-bg: var(--color-background-primary);
+  --btn-default-border: var(--color-border-tertiary);
 
-  --btn-primary-color: var(--color-white);
+  --btn-primary-color: var(--color-icon-primary);
   --btn-primary-bg: var(--color-primary);
   --btn-primary-border: var(--color-primary);
 
-  --btn-success-color: var(--color-white);
+  --btn-success-color: var(--color-background-primary);
   --btn-success-bg: var(--color-success);
   --btn-success-border: var(--color-success);
 
-  --btn-danger-color: var(--color-white);
+  --btn-danger-color: var(--color-background-primary);
   --btn-danger-bg: var(--color-danger);
   --btn-danger-border: var(--color-danger);
 
-  --btn-dark-color: var(--color-white);
-  --btn-dark-bg: var(--color-gray-dark);
+  --btn-dark-color: var(--color-background-tertiary);
+  --btn-dark-bg: var(--color-icon-secondary);
   --btn-dark-border: var(--color-danger);
 
   --btn-border-size: var(--border-size);
@@ -247,11 +247,11 @@
 }
 
 .default {
-  @include button-variant(var(--btn-default-color), var(--btn-default-bg), var(--btn-primary-border));
+  @include button-variant(var(--color-text-primary), var(--btn-default-bg), var(--btn-primary-border));
 }
 
 .primary {
-  @include button-variant(var(--btn-primary-color), var(--btn-primary-bg), var(--btn-primary-border));
+  @include button-variant(var(--color-text-secondary), var(--btn-primary-bg), var(--btn-primary-border));
 }
 
 .success {
@@ -277,7 +277,7 @@
 
 .ghost {
   &.default {
-    @include button-ghost-variant(var(--btn-default-bg), var(--btn-default-color));
+    @include button-ghost-variant(var(--btn-primary-color), var(--btn-default-color));
   }
 
   &.primary {

@@ -5,9 +5,9 @@
  */
 
 :root {
-  --loader-bg: var(--color-gray-dark);
-  --loader-bullet: var(--color-white);
-  --loader-message-color: var(--color-white);
+  --loader-bg: var(--color-background-quaternary);
+  --loader-bullet: var(--color-icon-primary);
+  --loader-message-color: var(--color-text-secondary);
 }
 
 .background {
@@ -22,7 +22,7 @@
 
 .message {
   font-size: var(--font-size-large);
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   text-align: center;
 }
 

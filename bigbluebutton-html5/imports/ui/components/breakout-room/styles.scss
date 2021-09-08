@@ -39,7 +39,7 @@
   }
   
   > i  {
-    color: var(--color-gray-dark);
+    color: var(--color-icon-quaternary);
 
     [dir="rtl"] & {
       -webkit-transform: scale(-1, 1);
@@ -102,7 +102,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  color: var(--color-gray);
+  color: var(--color-text-primary);
 
   [dir="rtl"] & {
     left: auto;

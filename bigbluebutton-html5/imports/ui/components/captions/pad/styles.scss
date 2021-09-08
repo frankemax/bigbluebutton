@@ -10,7 +10,7 @@
   margin-bottom: var(--lg-padding-y);
   min-height: var(--jumbo-padding-x);
   width: var(--speech-results-width);
-  border: solid var(--border-size-small) var(--color-gray);
+  border: solid var(--border-size-small) var(--color-border-quaternary);
 }
 
 .interimTitle {
@@ -18,7 +18,7 @@
 }
 
 .pad {
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   padding:
     var(--md-padding-x)
     var(--md-padding-y)
@@ -61,7 +61,7 @@
 
 .hideBtn {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-background-secondary);
   display: block;
   margin: var(--border-size-large);
   margin-bottom: var(--border-size);
@@ -74,7 +74,7 @@
   }
 
   > i {
-    color: var(--color-gray-dark);
+    color: var(--color-icon-secondary);
     font-size: smaller;
 
     [dir="rtl"] & {
@@ -87,7 +87,7 @@
   }
 
   &:hover {
-    background-color: var(--color-white);
+    background-color: var(--color-background-primary);
   }
 }
 
@@ -98,7 +98,7 @@
   @media (pointer: none) {
     visibility: visible;
     position: relative;
-    color: var(--color-gray);
+    color: var(--color-text-primary);
     font-size: var(--font-size-small);
     font-style: italic;
     padding-top: var(--sm-padding-x);
@@ -116,5 +116,5 @@ iframe {
   overflow-x: hidden;
   overflow-y: auto;
   border-style: none;
-  border-bottom: 1px solid var(--color-gray-lightest);
+  border-bottom: 1px solid var(--color-border-primary);
 }

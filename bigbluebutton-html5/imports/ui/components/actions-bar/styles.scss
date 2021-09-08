@@ -20,7 +20,7 @@
 .title {
   font-weight: var(--headings-font-weight);
   font-size: var(--font-size-large);
-  color: var(--color-background);
+  color: var(--color-text-quaternary);
   white-space: normal;
   padding-bottom: var(--md-padding-x);
 }
@@ -104,6 +104,6 @@
   span {
     box-shadow: none;
     background-color: transparent !important;
-    border-color: var(--color-white) !important;
+    border-color: var(--color-border-primary) !important;
   }
 }

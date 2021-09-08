@@ -1,22 +1,22 @@
 @import "../../stylesheets/variables/_all";
 
 :root {
-  --toast-default-color: var(--color-white);
-  --toast-default-bg: var(--color-gray);
+  --toast-default-color: var(--color-text-secondary);
+  --toast-default-bg: var(--color-background-quinary);
 
-  --toast-info-color: var(--color-white);
+  --toast-info-color: var(--color-text-secondary);
   --toast-info-bg: var(--color-primary);
 
-  --toast-success-color: var(--color-white);
+  --toast-success-color: var(--color-text-secondary);
   --toast-success-bg: var(--color-success);
 
-  --toast-error-color: var(--color-white);
+  --toast-error-color: var(--color-text-secondary);
   --toast-error-bg: var(--color-danger);
 
-  --toast-warning-color: var(--color-white);
+  --toast-warning-color: var(--color-text-secondary);
   --toast-warning-bg: var(--color-warning);
 
-  --background: var(--color-white);
+  --background: var(--color-background-primary);
   --background-active: #eee;
 
   --toast-offset: 4.5rem;
@@ -84,7 +84,7 @@
   position: relative;
   width: 100%;
   height: var(--border-size-small);
-  background-color: var(--color-gray-lighter);
+  background-color: var(--color-hover-quaternary);
   margin-top: calc(var(--line-height-computed) * .5);
   margin-bottom: calc(var(--line-height-computed) * .5);
 }
@@ -153,7 +153,7 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   background-color: var(--background);
   animation-duration: 0.75s;
   animation-fill-mode: both;
@@ -161,7 +161,7 @@
 
   &:hover,
   &:focus {
-    background-color: var(--background-active);
+    background-color: var(--color-hover-primary);
   }
 }
 
@@ -179,7 +179,7 @@
   cursor: pointer;
   opacity: .5;
   font-size: var(--font-size-smallest);
-  color: var(--color-gray-dark);
+  color: var(--color-icon-secondary);
   line-height: 0;
   position: relative;
   font-size: 70%;
@@ -235,7 +235,7 @@
   height: 5px;
   z-index: 9999;
   animation: track-progress linear 1;
-  background-color: var(--color-gray-lighter);
+  background-color: var(--color-background-quinary);
   border-radius: var(--border-radius);
 
   

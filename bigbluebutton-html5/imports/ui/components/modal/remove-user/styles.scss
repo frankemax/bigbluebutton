@@ -10,7 +10,7 @@
   }
 
 .title {
-    color: var(--color-gray-dark);
+    color: var(--color-text-quaternary);
     font-weight: var(--headings-font-weight);
     font-size: var(--jumbo-padding-y);
   }
@@ -42,13 +42,13 @@
   }
 
   .dismissBtn {
-    box-shadow: 0 0 0 1px var(--color-gray);
+    box-shadow: 0 0 0 1px var(--color-border-quaternary);
   }
   
   .description {
     text-align: center;
     line-height: var(--line-height-base);
-    color: var(--color-gray);
+    color: var(--color-text-primary);
     margin-bottom: var(--jumbo-padding-y)
   }
   

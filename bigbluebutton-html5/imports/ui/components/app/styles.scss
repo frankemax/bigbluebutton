@@ -107,6 +107,7 @@
   @extend %full-page;
   @extend %text-elipsis;
   @include highContrastOutline();
+  background-color: var(--color-background-primary);
   outline-style: solid;
   z-index: 2;
   overflow: visible;
@@ -129,7 +130,7 @@
 }
 
 .userlistPad {
-  background-color: var(--color-off-white);
+  background-color: var(--color-background-secondary);
   width: var(--userlist-handle-width);
 }
 
@@ -165,7 +166,7 @@
 }
 
 .poll {
-  background-color: var(--color-white);
+  background-color: var(--color-background-secondary);
   min-width: var(--poll-pane-min-width);
   padding: 1rem;
 }
@@ -173,7 +174,7 @@
 .breakoutRoom {
   height: 100%;
   width: 20vw;
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   @include mq($small-only) {
     width: auto;
     height: auto;
