@@ -23,7 +23,7 @@
 
   &:hover {
     @extend %highContrastOutline;
-    background-color: var(--list-item-bg-hover);
+    background-color: var(--color-hover-primary);
   }
 
   &:active,
@@ -41,8 +41,8 @@
   text-decoration: none;
   flex-grow: 1;
   line-height: 2;
-  color: var(--color-gray-dark);
-  background-color: var(--color-off-white);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-tertiary);
   padding-top: var(--lg-padding-y);
   padding-bottom: var(--lg-padding-y);
   padding-left: var(--lg-padding-y);
@@ -86,7 +86,7 @@
   @extend %text-elipsis;
   font-weight: 400;
   font-size: var(--font-size-small);
-  color: var(--color-gray-dark);
+  color: var(--color-text-primary);
   flex-grow: 1;
   line-height: 2;
   text-align: left;
@@ -100,5 +100,5 @@
 }
 
 .active {
-  background-color: var(--list-item-bg-hover);
+  background-color: var(--color-hover-primary);
 }

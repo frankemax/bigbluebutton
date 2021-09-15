@@ -39,7 +39,7 @@
   }
   
   > i  {
-    color: var(--color-gray-dark);
+    color: var(--color-icon-quaternary);
 
     [dir="rtl"] & {
       -webkit-transform: scale(-1, 1);
@@ -103,7 +103,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  color: var(--color-gray);
+  color: var(--color-text-primary);
 
   [dir="rtl"] & {
     left: auto;
@@ -153,7 +153,7 @@
   text-align: center;
   padding: .25rem;
   &::placeholder {
-    color: var(--color-gray);
+    color: var(--color-text-primary);
     opacity: 1;
   }
 }
@@ -200,7 +200,7 @@
 
 .breakoutScrollableList {
   @include elementFocus(var(--list-item-bg-hover));
-  @include scrollbox-vertical(var(--user-list-bg));
+  @include scrollbox-vertical(var(--color-background-tertiary));
   @extend %highContrastOutline;
 
   &:focus-within,

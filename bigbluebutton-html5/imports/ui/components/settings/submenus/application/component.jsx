@@ -368,6 +368,41 @@ class ApplicationMenu extends BaseMenu {
     );
   }
 
+  renderThemeToggle() {
+    // if (isDisabled) return false;
+
+    const { intl, showToggleLabel, displaySettingsStatus } = this.props;
+    const { settings } = this.state;
+    console.log(this.state.settings);
+
+    return (
+      <div className={styles.row}>
+        <div className={styles.col} aria-hidden="true">
+          <div className={styles.formElement}>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label className={styles.label}>
+              {/*{intl.formatMessage(intlMessages.paginationEnabledLabel)}*/}
+              Dark mode
+            </label>
+          </div>
+        </div>
+        <div className={styles.col}>
+          <div className={cx(styles.formElement, styles.pullContentRight)}>
+            {displaySettingsStatus(settings.themeToggle)}
+            <Toggle
+              icons={false}
+              defaultChecked={settings.themeToggle}
+              onChange={() => this.handleToggle('themeToggle')}
+              // ariaLabel={intl.formatMessage(intlMessages.paginationEnabledLabel)}
+              ariaLabel="change-mode"
+              showToggleLabel={showToggleLabel}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const {
       allLocales, intl, showToggleLabel, displaySettingsStatus,
@@ -425,6 +460,7 @@ class ApplicationMenu extends BaseMenu {
 
           {this.renderAudioFilters()}
           {this.renderPaginationToggle()}
+          {this.renderThemeToggle()}
 
           <div className={styles.row}>
             <div className={styles.col} aria-hidden="true">

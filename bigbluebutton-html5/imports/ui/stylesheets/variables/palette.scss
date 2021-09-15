@@ -1,38 +1,41 @@
 :root {
-  --palette-placeholder-text: #787675;
+  // this old vars should not be used, they we'll be removed in a near future
+  // The best thing would be to stop using these variables and start using those created from line 20 onwards.
+  // For this, it is also necessary to update the scss variables of each component, so that it uses the new variables
+  // The motivation would be to use global variables for elements that are close or have the same behavior.
+  // With that, the part of having several customized themes is no longer a costly task
 
+  // --palette-placeholder-text: #787675;
   --color-white: #FFF;
-  --color-off-white: #F3F6F9;
-
-  --color-black: #000000;
-  --color-gray: #4E5A66;
-  --color-gray-dark: #06172A;
-  --color-gray-light: #8B9AA8;
-  --color-gray-darkest: #111111;
-  --color-gray-lighter: #a7b3bd;
-  --color-gray-lightest: #d4d9df;
-
-  --color-blue-light: #54a1f3;
-  --color-blue-lighter: #92BCEA;
-  --color-blue-lightest: #E4ECF2;
+  // --color-off-white: #F3F6F9;
+  // --color-black: #000000;
+  // --color-gray: #4E5A66;
+  // --color-gray-dark: #06172A;
+  // --color-gray-light: #8B9AA8;
+  // --color-gray-darkest: #111111;
+  // --color-gray-lighter: #a7b3bd;
+  // --color-gray-lightest: #d4d9df;
 
   --color-primary: #0F70D7;
+  --color-primary-light: #54a1f3;
+  --color-primary-lighter: #92BCEA;
+  --color-primary-lightest: #E4ECF2;
+
   --color-success: #008081;
   --color-danger: #DF2721;
   --color-warning: purple;
-  --color-offline: var(--color-gray-light);
+  --color-offline: #8B9AA8;
 
-  --color-background: var(--color-gray-dark);
+   --color-background: var(--color-gray-dark); // unused
 
-  --color-content-background: #1b2a3a;
 
-  --color-text: var(--color-gray);
-  --color-heading: var(--color-gray-dark);
+  --color-text: var(--color-text-primary); // unused
+  --color-heading: var(--color-gray-dark); // unused
 
   --color-link: var(--color-primary);
-  --color-link-hover: #2687ef;
+  --color-link-hover: #2687ef; // unused
 
-  --color-gray-label: var(--color-gray);
+  --color-gray-label: var(--color-gray); // unused
 
   --color-transparent: #ff000000;
   --color-tip-bg: #333333;
@@ -41,25 +44,63 @@
 
   --loader-bg: var(--color-gray-dark);
   --loader-bullet: var(--color-white);
-  --user-list-bg: var(--color-off-white);
+
+  --user-list-bg: var(--color-background-tertiary); // unused
+
+  --color-content-background: #1b2a3a;
 
   --unread-messages-bg: var(--color-danger);
-  --user-list-text: var(--color-gray);
+  --user-list-text: var(--color-text-primary);
 
-  --user-thumbnail-border: var(--color-gray-light);
-  --user-thumbnail-text: var(--user-thumbnail-border);
+  --user-thumbnail-border: var(--color-border-primary);
+  --user-thumbnail-text: var(--user-thumbnail-border); // unused
 
-  --voice-user-bg: var(--color-success);
-  --voice-user-text: var(--color-white);
+  --voice-user-bg: var(--color-success); // unused
+  --voice-user-text: var(--color-white); // unused
 
-  --moderator-text: var(--color-white);
-  --moderator-bg: var(--color-primary);
+  --moderator-text: var(--color-white); // unused
+  --moderator-bg: var(--color-primary); // unused
 
-  --sub-name-color: var(--color-gray-light);
+  --sub-name-color: var(--color-gray-light); // unused
 
-  --user-icons-color: var(--color-gray-light);
-  --user-icons-color-hover: var(--color-gray);
+  --user-icons-color: var(--color-gray-light); // unused
+  --user-icons-color-hover: var(--color-gray); // unused
 
-  --list-item-bg-hover: #dce4ed;
-  --item-focus-border: var(--color-blue-lighter);
+  --list-item-bg-hover: var(--color-hover-primary);
+  --item-focus-border: var(--color-primary-lighter);
+
+
+  // new variables
+
+  --color-background-primary: #FFF; //FFF //background: modal, dropdown simple, whiteboard icons, toast
+  --color-background-secondary: #FFF; //FFF //background text chat, and bottom bar of whiteboard
+  --color-background-tertiary: #f3f6f9; //f3f6f9 //background user list and background for dropdowns custom
+  --color-background-quaternary: #06172a; //06172a // loading screen background
+  --color-background-quinary: #4E5A66; //4E5A66 //toast loading bar,
+  --color-background-presentation: #06172A; //1E1E1E //presentational,
+  --color-background-navbar: #06172A;
+  --color-background-actionsbar: #06172A;
+
+  --color-icon-primary: #fff; //fff //icon for background dark, icon: loader, some text buttons ...
+  --color-icon-secondary: #4E5A66;//4E5A66 //icon for background light, whiteboard icon selected and audio buttons modal
+  --color-icon-tertiary: #3c5764; //3c5764 //darker icon for background light, white board icon not selected, bottom whiteboard icons, loading icon screenshare
+  --color-icon-quaternary: #000000; //000000 fullscreen button icon?
+
+  --color-hover-primary: #dce4ed;
+  --color-hover-secondary: #0f70d7;
+  --color-hover-tertiary: #FFF;
+  --color-hover-quaternary: #a7b3bd;
+
+  --color-border-primary: #dce4ed; //dce4ed // action bar buttons, internal focus inputs
+  --color-border-secondary: #92bcea; //92bcea // user list item panel few things, can be merged
+  --color-border-tertiary: #FFF; //FFF // border for outside dropdown label
+  --color-border-quaternary: #4E5A66; //4E5A66 // input border shows everytime // dropdown border-bottom // whiteboard icons divisor // divisor general
+
+  --color-whiteboard-background: #ffffff;
+
+  --color-text-primary: #4E5A66; //4E5A66 //text for background light // default text
+  --color-text-secondary: #fff; //text for background dark // default text //
+  // --color-text-tertiary: #ff0000; //000 //text inside dropdown list items, can be merged with quaternary
+  --color-text-quaternary: #000; //titles
+
 }

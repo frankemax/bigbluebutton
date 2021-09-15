@@ -105,16 +105,16 @@
 }
 
 .actionsHeader {
-  color: var(--color-gray);
+  color: var(--color-text-primary);
 
   &:hover {
-    color: var(--color-gray) !important;
+    color: var(--color-text-primary) !important;
     cursor: default;
   }
 }
 
 .active {
-  background-color: var(--list-item-bg-hover);
+  background-color: var(--color-hover-primary);
   box-shadow: inset 0 0 0 var(--border-size) var(--item-focus-border), inset 1px 0 0 1px var(--item-focus-border);
 }
 

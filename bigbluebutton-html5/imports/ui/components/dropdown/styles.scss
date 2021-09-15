@@ -4,9 +4,9 @@
 @import "/imports/ui/stylesheets/variables/placeholders";
 
 :root {
-  --dropdown-bg: var(--color-white);
-  --dropdown-color: var(--color-text);
-  --caret-shadow-color: var(--color-gray);
+  --dropdown-bg: var(--color-background-secondary);
+  --dropdown-color: var(--color-text-primary);
+  --caret-shadow-color: var(--color-border-quaternary);
 
   --dropdown-caret-width: 12px;
   --dropdown-caret-height: 8px;
@@ -100,8 +100,8 @@
   font-size: calc(var(--font-size-large) * 1.1);
   width: calc(100% - (var(--line-height-computed) * 2));
   left: var(--line-height-computed);
-  box-shadow: 0 0 0 2rem var(--color-white) !important;
-  border: var(--color-white) !important;
+  box-shadow: 0 0 0 2rem var(--color-border-tertiary) !important;
+  border: var(--color-border-tertiary) !important;
 
   @include mq($small-only) {
     display: block;

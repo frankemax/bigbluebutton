@@ -40,7 +40,7 @@
 }
 
 .light .button i {
-  color: var(--color-black);
+  color: var(--color-icon-primary);
 }
 
 .dark {
@@ -48,10 +48,10 @@
 }
 
 .dark .button i {
-  color: var(--color-white);
+  color: var(--color-icon-quaternary);
 }
 
-.top{
+.top {
   top: 0;
 }
 

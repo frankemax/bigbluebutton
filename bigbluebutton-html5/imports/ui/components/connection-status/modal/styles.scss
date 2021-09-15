@@ -11,7 +11,7 @@
 .title {
   left: var(--title-position-left);
   right: auto;
-  color: var(--color-gray-dark);
+  color: var(--color-text-quaternary);
   font-weight: bold;
   font-size: var(--font-size-large);
   text-align: center;
@@ -41,12 +41,12 @@
 
 .description {
   text-align: center;
-  color: var(--color-gray);
+  color: var(--color-text-primary);
   margin-bottom: var(--sm-padding-y)
 }
 
 .label {
-  color: var(--color-gray-label);
+  color: var(--color-text-primary);
   font-size: var(--font-size-small);
   margin-bottom: var(--lg-padding-y);
 }
@@ -79,7 +79,7 @@
 }
 
 .even {
-  background-color: var(--color-off-white);
+  background-color: var(--color-background-tertiary);
 }
 
 .left {
@@ -136,7 +136,7 @@
 .networkDataContainer {
   width: 100%;
   display: flex;
-  background-color: var(--color-off-white);
+  background-color: var(--color-background-tertiary);
 }
 
 .networkData {
@@ -179,7 +179,7 @@
 }
 
 .dataSaving {
-  background-color: var(--color-off-white);
+  background-color: var(--color-background-tertiary);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

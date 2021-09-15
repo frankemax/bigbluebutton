@@ -460,7 +460,9 @@ class Poll extends Component {
           {intl.formatMessage(intlMessages.pollPanelDesc)}
         </div>
         <div>
-          <h4 aria-hidden>{intl.formatMessage(intlMessages.questionTitle)}</h4>
+          <h4 className={styles.title} aria-hidden>
+            {intl.formatMessage(intlMessages.questionTitle)}
+          </h4>
           <textarea
             data-test="pollQuestionArea"
             className={styles.pollQuestion}
@@ -479,7 +481,7 @@ class Poll extends Component {
           )}
         </div>
         <div data-test="responseTypes">
-          <h4>{intl.formatMessage(intlMessages.responseTypesLabel)}</h4>
+          <h4 className={styles.title}>{intl.formatMessage(intlMessages.responseTypesLabel)}</h4>
           <div className={styles.responseType}>
             <Button
               label={intl.formatMessage(intlMessages.tf)}

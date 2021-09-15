@@ -19,7 +19,7 @@
 }
 
 .chat {
-  background-color: var(--color-white);
+  background-color: var(--color-background-secondary);
   padding:
     var(--md-padding-x)
     var(--md-padding-y)
@@ -62,7 +62,7 @@
 
 .hideBtn {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-background-secondary);
   display: block;
   margin: var(--border-size-large);
   margin-bottom: var(--border-size);
@@ -76,7 +76,7 @@
   }
 
   > i {
-      color: var(--color-gray-dark);
+      color: var(--color-icon-secondary);
       font-size: smaller;
 
       [dir="rtl"] & {
@@ -89,7 +89,7 @@
   }
 
   &:hover {
-      background-color: var(--color-white);
+      background-color: var(--color-hover-tertiary);
   }
 }
 
@@ -110,7 +110,7 @@
 .userNameMessage {
   margin: 0;
   font-size: var(--toast-font-size);
-  color: var(--color-gray-dark);
+  color: var(--color-text-primary);
   font-weight: bold;
   background-color: inherit;
   @include lineClamp(1em, 1);

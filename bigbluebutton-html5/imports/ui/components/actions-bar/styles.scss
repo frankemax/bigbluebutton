@@ -19,7 +19,7 @@
 .title {
   font-weight: var(--headings-font-weight);
   font-size: var(--font-size-large);
-  color: var(--color-background);
+  color: var(--color-text-quaternary);
   white-space: normal;
   padding-bottom: var(--md-padding-x);
 }
@@ -91,7 +91,7 @@
 
 .quickPollBtn {
   padding: var(--whiteboard-toolbar-padding);
-  background-color: var(--color-off-white) !important;
+  background-color: var(--color-background-tertiary) !important;
   box-shadow: none !important;
 
   span:first-child {
@@ -114,7 +114,7 @@
   span {
     box-shadow: none;
     background-color: transparent !important;
-    border-color: var(--color-white) !important;
+    border-color: var(--color-border-primary) !important;
   }
 }
 

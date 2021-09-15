@@ -2,7 +2,7 @@
 @import "/imports/ui/stylesheets/variables/_all";
 
 .panel {
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   padding:
     var(--md-padding-x)
     var(--md-padding-y)
@@ -37,6 +37,7 @@
 .title {
   @extend %text-elipsis;
   flex: 1;
+  color: var(--color-text-quaternary);
 
   & > button, button:hover {
     max-width: var(--toast-content-width);
@@ -45,7 +46,7 @@
 
 .hideBtn {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-background-secondary);
   display: block;
   margin: var(--border-size-large);
   margin-bottom: var(--border-size);
@@ -58,7 +59,7 @@
   }
 
   > i {
-    color: var(--color-gray-dark);
+    color: var(--color-icon-secondary);
     font-size: smaller;
 
     [dir="rtl"] & {
@@ -71,7 +72,7 @@
   }
 
   &:hover {
-    background-color: var(--color-white);
+    background-color: var(--color-background-primary);
   }
 }
 
@@ -84,7 +85,7 @@
 }
 
 .mainTitle {
-  color: var(--color-gray);
+  color: var(--color-text-primary);
 }
 
 .userAvatar {
@@ -187,12 +188,12 @@
 }
 
 .lobbyMessage {
-  border-bottom: 1px solid var(--color-gray-lightest);
+  border-bottom: 1px solid var(--color-border-primary);
 
   p {
-    background-color: var(--color-off-white);
+    background-color: var(--color-background-tertiary);
     box-sizing: border-box;
-    color: var(--color-gray);
+    color: var(--color-text-primary);
     padding: 1rem;
     text-align: center;
   }

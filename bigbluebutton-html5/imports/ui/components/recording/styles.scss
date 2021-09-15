@@ -1,7 +1,7 @@
 @import "/imports/ui/components/modal/simple/styles";
 
 .title {
-  color: var(--color-gray-dark);
+  color: var(--color-text-quaternary);
   font-weight: var(--headings-font-weight);
   font-size: var(--jumbo-padding-y);
 }
@@ -34,7 +34,7 @@
 .description {
   text-align: center;
   line-height: var(--line-height-base);
-  color: var(--color-gray);
+  color: var(--color-text-primary);
   margin-bottom: var(--jumbo-padding-y)
 }
 

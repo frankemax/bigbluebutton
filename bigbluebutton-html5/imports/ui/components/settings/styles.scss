@@ -41,7 +41,7 @@
   justify-content: flex-start;
   border: none !important;
   padding: var(--md-padding-y) var(--md-padding-x);
-  color: var(--color-gray-dark);
+  color: var(--color-text-primary);
   border-radius: .2rem;
   cursor: pointer;
   margin-bottom: var(--sm-padding-y);
@@ -66,12 +66,12 @@
 }
 
 .selected {
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   background-color: var(--color-primary);
   font-weight: bold;
 
   & > .icon {
-    color: var(--color-white);
+    color: var(--color-icon-primary);
   }
 }
 

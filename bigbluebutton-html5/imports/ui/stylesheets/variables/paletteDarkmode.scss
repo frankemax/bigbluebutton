@@ -1,0 +1,94 @@
+:root {
+  --palette-placeholder-text: #787675;
+  --color-white: #FFF;
+  --color-off-white: #F3F6F9;
+  --color-black: #000000;
+  --color-gray: #4E5A66;
+  --color-gray-dark: #06172A;
+  --color-gray-light: #8B9AA8;
+  --color-gray-darkest: #111111;
+  --color-gray-lighter: #a7b3bd;
+  --color-gray-lightest: #d4d9df;
+
+  --color-primary: #0F70D7;
+  --color-primary-light: #54a1f3;
+  --color-primary-lighter: #92BCEA;
+  --color-primary-lightest: #E4ECF2;
+
+  --color-success: #008081;
+  --color-danger: #DF2721;
+  --color-warning: purple;
+  --color-offline: #8B9AA8;
+
+  --color-background: var(--color-gray-dark);
+
+
+  --color-text: var(--color-text-primary);
+  --color-heading: var(--color-gray-dark);
+
+  --color-link: var(--color-primary);
+  --color-link-hover: #2687ef;
+
+  --color-gray-label: var(--color-gray);
+
+  --color-transparent: #ff000000;
+  --color-tip-bg: #333333;
+
+  --color-white-with-transparency: #ffffff40;
+
+  --loader-bg: var(--color-gray-dark);
+  --loader-bullet: var(--color-white);
+
+  --user-list-bg: var(--color-background-tertiary);
+
+  --color-content-background: #1b2a3a;
+
+  --unread-messages-bg: var(--color-danger);
+  --user-list-text: var(--color-text-primary);
+
+  --user-thumbnail-border: var(--color-border-primary);
+  --user-thumbnail-text: var(--user-thumbnail-border);
+
+  --voice-user-bg: var(--color-success);
+  --voice-user-text: var(--color-white);
+
+  --moderator-text: var(--color-white);
+  --moderator-bg: var(--color-primary);
+
+  --sub-name-color: var(--color-gray-light);
+
+  --user-icons-color: var(--color-gray-light);
+  --user-icons-color-hover: var(--color-gray);
+
+  --list-item-bg-hover: var(--color-hover-primary);
+  --item-focus-border: var(--color-primary-lighter);
+
+  --color-background-primary: #121212;
+  --color-background-secondary: #1E1E1E;
+  --color-background-tertiary: #252525;
+  --color-background-quaternary: #1E1E1E;
+  --color-background-quinary: #4E5A66;
+  --color-background-presentation: #121212;
+  --color-background-navbar: #121212;
+  --color-background-actionsbar: #121212;
+
+  --color-icon-primary: #A6A6A6;
+  --color-icon-secondary: #A6A6A6;
+  --color-icon-tertiary: #A6A6A6;
+  --color-icon-quaternary: #A6A6A6;
+
+  --color-hover-primary: #363636;
+  --color-hover-secondary: #4E5A66;
+  --color-hover-tertiary: #363636;
+  --color-hover-quaternary: #4E5A66;
+
+  --color-border-primary: #dce4ed;
+  --color-border-secondary: #00000000;
+  --color-border-tertiary: #FFF;
+  --color-border-quaternary: #dce4ed;
+  --color-whiteboard-background: #1E1E1E;
+
+  --color-text-primary: #DEDEDE;
+  --color-text-secondary: #DEDEDE;
+  --color-text-quaternary: #FFF;
+}

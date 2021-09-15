@@ -468,6 +468,7 @@ class App extends Component {
       shouldShowPresentation,
       shouldShowScreenshare,
       shouldShowExternalVideo,
+      darkMode,
       isPresenter,
     } = this.props;
 
@@ -517,6 +518,7 @@ class App extends Component {
           <ModalContainer />
           {this.renderActionsBar()}
           {customStyleUrl ? <link rel="stylesheet" type="text/css" href={customStyleUrl} /> : null}
+          {darkMode ? <link rel="stylesheet" type="text/css" href={'https://bbb-dev-01.test/css/paletteDarkmode.css'} /> : null}
           {customStyle ? <link rel="stylesheet" type="text/css" href={`data:text/css;charset=UTF-8,${encodeURIComponent(customStyle)}`} /> : null}
         </div>
       </>

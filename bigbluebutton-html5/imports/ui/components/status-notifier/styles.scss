@@ -26,7 +26,7 @@
   position: relative;
   width: 100%;
   height: var(--border-size-small);
-  background-color: var(--color-gray-lighter);
+  background-color: var(--color-border-quaternary);
   margin-top: var(--toast-margin);
   margin-bottom: var(--toast-margin);
 }
@@ -63,7 +63,7 @@
 }
 
 .avatarsExtra {
-  background-color: var(--color-gray-light);
+  background-color: var(--color-background-secondary);
 }
 
 .avatar {
@@ -85,7 +85,7 @@
 
 .avatar:hover,
 .avatar:focus {
-    border: solid var(--border-size) var(--color-gray-lighter);
+    border: solid var(--border-size) var(--color-border-quaternary);
 }
 
 .iconWrapper {

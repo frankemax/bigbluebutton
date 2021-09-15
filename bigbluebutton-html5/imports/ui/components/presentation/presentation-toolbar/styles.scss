@@ -27,13 +27,13 @@
 .presentationBtn {
   position: relative;
   color: var(--toolbar-button-color);
-  background-color: var(--color-off-white);
+  background-color: var(--color-background-tertiary);
   border-radius: 0;
   box-shadow: none !important;
   border: 0;
 
   &:focus {
-    background-color: var(--color-off-white);
+    background-color: var(--color-background-tertiary);
     border: 0;
   }
 }
@@ -68,8 +68,8 @@
   position: relative;
   align-self: center;
   z-index: 1;
-  background-color: var(--color-off-white);
-  border-top: 1px solid var(--color-blue-lightest);
+  background-color: var(--color-background-tertiary);
+  border-top: 1px solid var(--color-primary-lightest);
   min-width: fit-content;
   width: 100%;
   display: grid;
@@ -80,7 +80,8 @@
       outline: none;
     }
     border: 0;
-    background-color: var(--color-off-white);
+    background-color: var(--color-background-tertiary);
+    color: var(--color-text-primary);
     cursor: pointer;
     margin: 0 var(--whiteboard-toolbar-margin) 0 0;
     padding: var(--whiteboard-toolbar-padding);
@@ -94,7 +95,7 @@
 
     option {
       color: var(--toolbar-button-color);
-      background-color: var(--color-off-white);
+      background-color: var(--color-background-secondary);
     }
   }
 
@@ -182,7 +183,7 @@
 
 .zoomPercentageDisplay {
   text-align: center;
-  color: black;
+  color: var(--color-text-quaternary);
   display: flex;
   align-items: center;
   justify-content: center;

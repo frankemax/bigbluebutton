@@ -18,11 +18,11 @@
     border: none;
     box-shadow: none;
     background-color: transparent !important;
-    color: var(--color-white) !important;
+    color: var(--color-text-secondary) !important;
   }
 
   &:hover {
-    color: var(--color-white) !important;
+    color: var(--color-text-secondary) !important;
     cursor: pointer;
   }
 
@@ -49,11 +49,11 @@
   @extend %recordingControl;
 
   padding: 7px;
-  border: var(--border-size-small) solid var(--color-white);
+  border: var(--border-size-small) solid var(--color-border-tertiary);
   
   &:focus {
     padding: 5px;
-    border: var(--border-size-large) solid var(--color-white);
+    border: var(--border-size-large) solid var(--color-border-tertiary);
     box-shadow: none;
   }
 }
@@ -63,7 +63,7 @@
   flex-direction: column;
   justify-content: center;
   font-weight: 200;
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   font-size: var(--font-size-base);
   padding: 0;
   margin-right: 0;
@@ -116,7 +116,7 @@
 }
 
 .presentationTitleSeparator {
-  color: var(--color-gray);
+  color: var(--color-border-quaternary);
   font-size: var(--font-size-base);
   margin: 0 1rem;
 }

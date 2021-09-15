@@ -79,7 +79,7 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
-  background-color: var(--color-black);
+  background-color:var(--color-text-quaternary);
 }
 
 .cursorGrab{
@@ -110,7 +110,7 @@
 
 .loadingText {
   @extend %text-elipsis;
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   font-size: 100%;
 }
 
@@ -161,7 +161,7 @@
   // Keep the background with 0.5 opacity, but leave the text with 1
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 1px;
-  color: var(--color-off-white);
+  color: var(--color-text-primary);
   padding: 0 1rem 0 .5rem !important;
   font-size: 80%;
 }
@@ -218,7 +218,7 @@
   height: var(--audio-indicator-width);
   min-width: var(--audio-indicator-width);
   min-height: var(--audio-indicator-width);
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   border-radius: 50%;
 
   &::before {
@@ -236,7 +236,7 @@
 
 .nextPage,
 .previousPage{
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   width: var(--md-padding-x);
 
   i {

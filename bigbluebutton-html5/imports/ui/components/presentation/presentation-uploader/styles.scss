@@ -59,15 +59,18 @@
     }
 
     > tr {
-      border-bottom: 1px solid var(--color-gray-light);
+      border-bottom: 1px solid var(--color-icon-secondary);
 
       &:last-child {
+        background-color: var(--color-background-primary);
         border-bottom: 0;
       }
 
       &:hover,
       &:focus {
-        background-color: transparentize(#8B9AA8, .85);
+        background-color: var(--color-hover-primary);
+
+
       }
 
       th,
@@ -78,7 +81,7 @@
 
       th {
         font-weight: bold;
-        color: var(--color-gray-dark);
+        color: var(--color-icon-quaternary);
       }
 
       td {
@@ -194,7 +197,7 @@
   background: transparent;
   cursor: pointer;
   font-size: 1.35rem;
-  color: var(--color-gray-light);
+  color: var(--color-icon-secondary);
   padding: 0;
 
   :global(.animationsEnabled) & {
@@ -235,8 +238,8 @@
 
 .dropzone {
   flex: auto;
-  border: var(--border-size) dashed var(--color-gray);
-  color: var(--color-gray);
+  border: var(--border-size) dashed var(--color-border-primary);
+  color: var(--color-text-primary);
   border-radius: var(--border-radius);
   padding: calc(var(--lg-padding-y) * 2.5) var(--lg-padding-x);
   text-align: center;
@@ -245,7 +248,7 @@
 }
 
 .dropzoneActive {
-  background-color: var(--color-gray-lighter);
+  background-color: var(--color-hover-quaternary);
 }
 
 .dropzoneIcon {
@@ -269,7 +272,7 @@
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
-  color: var(--color-white);
+  color: var(--color-text-secondary);
   background: var(--color-primary);
   text-align: center;
   white-space: nowrap;
@@ -341,10 +344,10 @@
 }
 
 .loading {
-  color: var(--color-gray-lightest);
+  color: var(--color-text-primary);
   border: 1px solid;
   border-radius: 50%;
-  border-right-color: var(--color-gray);
+  border-right-color: var(--color-border-primary);
   animation: rotate 1s linear infinite;
 }
 
@@ -444,7 +447,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: var(--border-size) solid var(--color-gray-lighter);
+  border-bottom: var(--border-size) solid var(--color-border-primary);
   margin-bottom: 2rem;
 
   h1 {
@@ -460,7 +463,7 @@
 
 .modalHint {
   margin-bottom: 2rem;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-weight: normal;
 }
 

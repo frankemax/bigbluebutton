@@ -26,14 +26,14 @@
 .center {
   position: relative;
   flex: 3;
-  border-left: 1px solid var(--color-gray-lighter);
+  border-left: 1px solid var(--color-border-quaternary);
   border-right : none;
   width: 100%;
   height: 100%;
 
   [dir="rtl"] & {
     border-left: none;
-    border-right: 1px solid var(--color-gray-lighter);
+    border-right: 1px solid var(--color-border-quaternary);
   }
 }
 
@@ -49,7 +49,6 @@
   text-align: right;
   max-width: var(--poll-stats-element-width);
   min-width: var(--poll-stats-element-width);
-  flex: 1;
 
   [dir="rtl"] & {
     text-align: left;
@@ -62,7 +61,7 @@
   padding: var(--sm-padding-y);
   margin-top: var(--poll-sm-margin);
   margin-bottom: var(--poll-sm-margin);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .left,
@@ -97,7 +96,7 @@
 }
 
 .barShade {
-  background-color: var(--color-gray-lighter);
+  background-color: var(--color-background-quinary);
   height: 100%;
   min-height: 100%;
   position: absolute;
@@ -121,7 +120,7 @@
 
 .resultLeft {
   padding: 0 .5rem 0 0;
-  border-bottom: 1px solid var(--color-gray-lightest);
+  border-bottom: 1px solid var(--color-border-primary);
 
   [dir="rtl"] & {
     padding: 0 0 0 .5rem;
@@ -162,7 +161,7 @@
   flex: 1 1 100%;
   height: 1px;
   min-height: 1px;
-  background-color: var(--color-gray-lightest);
+  background-color: var(--color-border-quaternary);
   padding: 0;
   margin-top: 1rem;
   margin-bottom: 1rem;

@@ -11,7 +11,7 @@
 .modal {
   display: flex;
   padding: var(--lg-padding-x);
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   flex-direction: column;
   border-radius: var(--border-radius);
   max-width: 95vw;
@@ -19,7 +19,7 @@
 }
 
 .text {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-weight: normal;
   padding: var(--line-height-computed) 0;
   @include mq($small-only) {
@@ -32,6 +32,7 @@
 }
 
 .title {
+  color: var(--color-text-quaternary);
   margin: 0;
   font-size: var(--font-size-large);
   font-weight: var(--headings-font-weight);

@@ -27,10 +27,10 @@
   justify-content: center;
   flex-grow: 0;
   flex-shrink: 0;
-  border: var(--border-size) solid var(--color-gray-lighter);
+  border: var(--border-size) solid var(--color-border-quaternary);
   background-color: #fff;
   border-radius: var(--border-radius) 0 0 var(--border-radius);
-  color: var(--color-gray-light);
+  color: var(--color-text-primary);
   padding: var(--sm-padding-y) var(--sm-padding-x);
   cursor: pointer;
 
@@ -54,13 +54,13 @@
 }
 
 .input {
-  @include inputFocus(var(--color-blue-light));
+  @include inputFocus(var(--color-border-secondary));
 
   flex: 1;
-  background: #fff;
+  background: var(--color-hover-tertiary);
   background-clip: padding-box;
   margin: 0;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   -webkit-appearance: none;
   padding: calc(var(--sm-padding-y) * 2.5) calc(var(--sm-padding-x) * 1.25);
   resize: none;
@@ -70,8 +70,8 @@
   line-height: 1;
   min-height: 2.5rem;
   max-height: 10rem;
-  border: 1px solid var(--color-gray-lighter);
-  box-shadow: 0 0 0 1px var(--color-gray-lighter);
+  border: 1px solid var(--color-border-quaternary);
+  box-shadow: 0 0 0 1px var(--color-border-quaternary);
 
   &:disabled,
   &[disabled] {
@@ -105,7 +105,7 @@
 .error,
 .info {
   font-size: calc(var(--font-size-base) * .75);
-  color: var(--color-gray-dark);
+  color: var(--color-text-primary);
   text-align: left;
   padding: var(--border-size) 0;
   position: relative;

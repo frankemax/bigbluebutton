@@ -13,7 +13,7 @@
 
 .title {
   display: block;
-  color: var(--color-background);
+  color: var(--color-text-quaternary);
   font-size: 1.4rem;
   text-align: center;
 }
@@ -61,9 +61,9 @@
 }
 
 .select {
-  background-color: var(--color-white);
+  background-color: var(--color-background-primary);
   border-radius: 0.3rem;
-  color: var(--color-gray-label);
+  color: var(--color-text-primary);
   height: 1.6rem;
   margin-top: 0.4rem;
   width: 50%;
@@ -91,7 +91,7 @@
   flex: 1 0 0;
   @include elementFocus(var(--color-primary));
   border-radius: var(--border-size);
-  border: var(--border-size) solid var(--color-gray-light);
+  border: var(--border-size) solid var(--color-text-primary);
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;

@@ -9,7 +9,11 @@
   margin-left: .5rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+/*  color: var(--color-text-primary);*/
   overflow: hidden;
+/*  &:hover {
+    color: var(--color-text-secondary)
+  }*/
 }
 
 .closeBtn {
@@ -50,6 +54,7 @@
   :global(.MuiPaper-root) {
     background-color: var(--dropdown-bg);
     border-radius: var(--border-radius);
+    color: var(--color-text-primary);
     border: 0;
     z-index: 9999;
     max-width: 16rem;
@@ -65,13 +70,17 @@
 .menuitem {
   transition: none !important;
   font-size: 90% !important;
+
+  i {
+    color: var(--color-icon-secondary);
+  }
   
   &:focus,
   &:hover {
-    i { 
-      color: #FFF;
+    i {
+      color: var(--color-icon-primary);
     }
-    color: #FFF;
+    color: var(--color-text-secondary);
     background-color: var(--color-primary) !important;
   }
 }

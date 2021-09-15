@@ -11,7 +11,7 @@
 .title {
   left: var(--title-position-left);
   right: auto;
-  color: var(--color-gray-dark);
+  color: var(--color-text-quaternary);
   font-weight: bold;
   font-size: var(--font-size-large);
   text-align: center;
@@ -37,12 +37,12 @@
 
 .description {
   text-align: center;
-  color: var(--color-gray);
+  color: var(--color-text-primary);
   margin-bottom: var(--jumbo-padding-y)
 }
 
 .label {
-  color: var(--color-gray-label);
+  color: var(--color-text-primary);
   font-size: var(--font-size-small);
   margin-bottom: var(--lg-padding-y);
 }

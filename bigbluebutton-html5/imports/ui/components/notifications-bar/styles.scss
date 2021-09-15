@@ -1,17 +1,17 @@
 :root {
-  --nb-default-color: var(--color-gray);
-  --nb-default-bg: var(--color-white);
-  --nb-default-border: var(--color-white);
+  --nb-default-color: var(--color-text-primary);
+  --nb-default-bg: var(--color-background-primary);
+  --nb-default-border: var(--color-border-tertiary);
 
-  --nb-primary-color: var(--color-white);
+  --nb-primary-color: var(--color-background-primary);
   --nb-primary-bg: var(--color-primary);
   --nb-primary-border: var(--color-primary);
 
-  --nb-success-color: var(--color-white);
+  --nb-success-color: var(--color-background-primary);
   --nb-success-bg: var(--color-success);
   --nb-success-border: var(--color-success);
 
-  --nb-danger-color: var(--color-white);
+  --nb-danger-color: var(--color-background-primary);
   --nb-danger-bg: var(--color-danger);
   --nb-danger-border: var(--color-danger);
 }
