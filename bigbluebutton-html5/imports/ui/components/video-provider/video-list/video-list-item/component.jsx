@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 import browserInfo from '/imports/utils/browserInfo';
 import { Meteor } from 'meteor/meteor';
@@ -56,35 +56,29 @@ const intlMessages = defineMessages({
   },
 });
 
-class VideoListItem extends Component {
-  constructor(props) {
-    super(props);
-    this.videoTag = null;
+const VideoListItem = (props) => {
+  const [videoIsReady, setVideoIsReady] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isStreamHealthy, setIsStreamHealthy] = useState(false);
+  const [isMirrored, setIsMirrored] = useState(VideoService.mirrorOwnWebcam(props.userId));
+  const videoTag = useRef();
+  const videoContainer = useRef();
+  const mirrorOwnWebcam = VideoService.mirrorOwnWebcam(props.userId);
 
-    this.state = {
-      videoIsReady: false,
-      isFullscreen: false,
-      isStreamHealthy: false,
-      isMirrored: VideoService.mirrorOwnWebcam(props.userId),
+  useEffect(() => {
+    const { onVideoItemMount, cameraId } = props;
+    onVideoItemMount(videoTag.current);
+    subscribeToStreamStateChange(cameraId, onStreamStateChange);
+    videoTag.current.addEventListener('loadeddata', handleSetVideoIsReady);
+    videoContainer.current.addEventListener(FULLSCREEN_CHANGE_EVENT, onFullscreenChange);
+
+    return () => {
+      videoTag.current.removeEventListener('loadeddata', handleSetVideoIsReady);
+      videoContainer.current.removeEventListener(FULLSCREEN_CHANGE_EVENT, onFullscreenChange);
     };
+  }, []);
 
-    this.mirrorOwnWebcam = VideoService.mirrorOwnWebcam(props.userId);
-
-    this.setVideoIsReady = this.setVideoIsReady.bind(this);
-    this.onFullscreenChange = this.onFullscreenChange.bind(this);
-    this.onStreamStateChange = this.onStreamStateChange.bind(this);
-  }
-
-  componentDidMount() {
-    const { onVideoItemMount, cameraId } = this.props;
-
-    onVideoItemMount(this.videoTag);
-    this.videoTag.addEventListener('loadeddata', this.setVideoIsReady);
-    this.videoContainer.addEventListener(FULLSCREEN_CHANGE_EVENT, this.onFullscreenChange);
-    subscribeToStreamStateChange(cameraId, this.onStreamStateChange);
-  }
-
-  componentDidUpdate() {
+  useEffect(() => {
     const playElement = (elem) => {
       if (elem.paused) {
         elem.play().catch((error) => {
@@ -100,22 +94,20 @@ class VideoListItem extends Component {
     // This is here to prevent the videos from freezing when they're
     // moved around the dom by react, e.g., when  changing the user status
     // see https://bugs.chromium.org/p/chromium/issues/detail?id=382879
-    if (this.videoTag) {
-      playElement(this.videoTag);
+    if (videoIsReady) {
+      playElement(videoTag.current);
     }
-  }
+  }, [videoIsReady]);
 
-  componentWillUnmount() {
+  useEffect(() => () => {
     const {
       cameraId,
       onVideoItemUnmount,
       isFullscreenContext,
       layoutContextDispatch,
-    } = this.props;
+    } = props;
 
-    this.videoTag.removeEventListener('loadeddata', this.setVideoIsReady);
-    this.videoContainer.removeEventListener(FULLSCREEN_CHANGE_EVENT, this.onFullscreenChange);
-    unsubscribeFromStreamStateChange(cameraId, this.onStreamStateChange);
+    unsubscribeFromStreamStateChange(cameraId, onStreamStateChange);
     onVideoItemUnmount(cameraId);
 
     if (isFullscreenContext) {
@@ -127,32 +119,29 @@ class VideoListItem extends Component {
         },
       });
     }
-  }
+  }, []);
 
-  onStreamStateChange(e) {
+  const onStreamStateChange = (e) => {
     const { streamState } = e.detail;
-    const { isStreamHealthy } = this.state;
 
     const newHealthState = !isStreamStateUnhealthy(streamState);
     e.stopPropagation();
 
     if (newHealthState !== isStreamHealthy) {
-      this.setState({ isStreamHealthy: newHealthState });
+      setIsStreamHealthy(newHealthState);
     }
-  }
+  };
 
-  onFullscreenChange() {
-    const { isFullscreen } = this.state;
-    const serviceIsFullscreen = FullscreenService.isFullScreen(this.videoContainer);
+  const onFullscreenChange = () => {
+    const serviceIsFullscreen = FullscreenService.isFullScreen(videoContainer);
 
     if (isFullscreen !== serviceIsFullscreen) {
-      this.setState({ isFullscreen: serviceIsFullscreen });
+      setIsFullscreen(serviceIsFullscreen);
     }
-  }
+  };
 
-  setVideoIsReady() {
-    const { videoIsReady } = this.state;
-    if (!videoIsReady) this.setState({ videoIsReady: true });
+  const handleSetVideoIsReady = () => {
+    setVideoIsReady(true);
     window.dispatchEvent(new Event('resize'));
 
     /* used when re-sharing cameras after leaving a breakout room.
@@ -160,9 +149,9 @@ class VideoListItem extends Component {
     so we only share the second camera after the first
     has finished loading (can't share more than one at the same time) */
     Session.set('canConnect', true);
-  }
+  };
 
-  getAvailableActions() {
+  const getAvailableActions = () => {
     const {
       intl,
       cameraId,
@@ -170,7 +159,7 @@ class VideoListItem extends Component {
       onHandleVideoFocus,
       user,
       focused,
-    } = this.props;
+    } = props;
 
     const pinned = user?.pin;
     const userId = user?.userId;
@@ -182,7 +171,7 @@ class VideoListItem extends Component {
       key: `${cameraId}-mirror`,
       label: intl.formatMessage(intlMessages.mirrorLabel),
       description: intl.formatMessage(intlMessages.mirrorDesc),
-      onClick: () => this.mirrorCamera(cameraId),
+      onClick: () => mirrorCamera(cameraId),
     }];
 
     if (numOfStreams > 2) {
@@ -204,23 +193,21 @@ class VideoListItem extends Component {
     }
 
     return menuItems;
-  }
+  };
 
-  mirrorCamera() {
-    const { isMirrored } = this.state;
-    this.setState({ isMirrored: !isMirrored });
-  }
+  const mirrorCamera = () => {
+    setIsMirrored((value) => !value);
+  };
 
-  renderFullscreenButton() {
-    const { name, cameraId } = this.props;
-    const { isFullscreen } = this.state;
+  const renderFullscreenButton = () => {
+    const { name, cameraId } = props;
 
     if (!ALLOW_FULLSCREEN) return null;
 
     return (
       <FullscreenButtonContainer
         data-test="webcamsFullscreenButton"
-        fullscreenRef={this.videoContainer}
+        fullscreenRef={videoContainer.current}
         elementName={name}
         elementId={cameraId}
         elementGroup="webcams"
@@ -228,10 +215,10 @@ class VideoListItem extends Component {
         dark
       />
     );
-  }
+  };
 
-  renderPinButton() {
-    const { user, intl } = this.props;
+  const renderPinButton = () => {
+    const { user, intl } = props;
     const pinned = user?.pin;
     const userId = user?.userId;
     const shouldRenderPinButton = pinned && userId;
@@ -255,22 +242,17 @@ class VideoListItem extends Component {
         />
       </Styled.PinButtonWrapper>
     );
-  }
+  };
 
-  render() {
-    const {
-      videoIsReady,
-      isStreamHealthy,
-      isMirrored,
-    } = this.state;
+  const renderComponent = () => {
     const {
       name,
-      user,
       voiceUser,
       numOfStreams,
       isFullscreenContext,
-    } = this.props;
-    const availableActions = this.getAvailableActions();
+    } = props;
+
+    const availableActions = getAvailableActions();
     const enableVideoMenu = Meteor.settings.public.kurento.enableVideoMenu || false;
     const shouldRenderReconnect = !isStreamHealthy && videoIsReady;
 
@@ -280,7 +262,7 @@ class VideoListItem extends Component {
     const listenOnly = voiceUser?.listenOnly;
     const muted = voiceUser?.muted;
     const voiceUserJoined = voiceUser?.joined;
-    
+
     return (
       <Styled.Content
         talking={talking}
@@ -299,7 +281,6 @@ class VideoListItem extends Component {
               <Styled.LoadingText>{name}</Styled.LoadingText>
             </Styled.WebcamConnecting>
           )
-
         }
 
         {
@@ -307,18 +288,18 @@ class VideoListItem extends Component {
           && <Styled.Reconnecting />
         }
 
-        <Styled.VideoContainer ref={(ref) => { this.videoContainer = ref; }}>
+        <Styled.VideoContainer ref={videoContainer}>
           <Styled.Video
             muted
-            data-test={this.mirrorOwnWebcam ? 'mirroredVideoContainer' : 'videoContainer'}
+            data-test={mirrorOwnWebcam ? 'mirroredVideoContainer' : 'videoContainer'}
             mirrored={isMirrored}
             unhealthyStream={shouldRenderReconnect}
-            ref={(ref) => { this.videoTag = ref; }}
+            ref={videoTag}
             autoPlay
             playsInline
           />
-          {videoIsReady && this.renderFullscreenButton()}
-          {videoIsReady && this.renderPinButton()}
+          {videoIsReady && renderFullscreenButton()}
+          {videoIsReady && renderPinButton()}
         </Styled.VideoContainer>
         {videoIsReady
           && (
@@ -327,14 +308,14 @@ class VideoListItem extends Component {
                 ? (
                   <BBBMenu
                     trigger={<Styled.DropdownTrigger tabIndex={0} data-test="dropdownWebcamButton">{name}</Styled.DropdownTrigger>}
-                    actions={this.getAvailableActions()}
+                    actions={getAvailableActions()}
                     opts={{
-                      id: "default-dropdown-menu",
+                      id: 'default-dropdown-menu',
                       keepMounted: true,
                       transitionDuration: 0,
                       elevation: 3,
                       getContentAnchorEl: null,
-                      fullwidth: "true",
+                      fullwidth: 'true',
                       anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
                       transformorigin: { vertical: 'bottom', horizontal: 'left' },
                     }}
@@ -354,8 +335,10 @@ class VideoListItem extends Component {
           )}
       </Styled.Content>
     );
-  }
-}
+  };
+
+  return renderComponent();
+};
 
 export default injectIntl(VideoListItem);
 
@@ -376,7 +359,7 @@ VideoListItem.propTypes = {
     pin: PropTypes.bool.isRequired,
     userId: PropTypes.string.isRequired,
   }).isRequired,
-  voiceUser:  PropTypes.shape({
+  voiceUser: PropTypes.shape({
     muted: PropTypes.bool.isRequired,
     listenOnly: PropTypes.bool.isRequired,
     talking: PropTypes.bool.isRequired,
