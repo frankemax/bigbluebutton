@@ -36,7 +36,7 @@ export default withTracker((props) => {
     user: Users.findOne({ intId: userId },
       {
         fields: {
-          pin: 1, userId: 1, name: 1,
+          pin: 1, userId: 1, name: 1, avatar: 1, role: 1, color: 1,
         },
       }),
   };
