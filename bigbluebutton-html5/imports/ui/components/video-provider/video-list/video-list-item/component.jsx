@@ -5,6 +5,7 @@ import ViewActions from '/imports/ui/components/video-provider/video-list/video-
 import UserActions from '/imports/ui/components/video-provider/video-list/video-list-item/user-actions/component';
 import UserStatus from '/imports/ui/components/video-provider/video-list/video-list-item/user-status/component';
 import PinArea from '/imports/ui/components/video-provider/video-list/video-list-item/pin-area/component';
+import UserAvatar from '/imports/ui/components/video-provider/video-list/video-list-item/user-avatar/component';
 import {
   isStreamStateUnhealthy,
   subscribeToStreamStateChange,
@@ -136,7 +137,9 @@ const VideoListItem = (props) => {
                 talking={talking}
                 animations={animations}
               >
-                <Styled.LoadingText>{name}</Styled.LoadingText>
+                <UserAvatar
+                  user={user}
+                />
               </Styled.WebcamConnecting>
             )
         }
