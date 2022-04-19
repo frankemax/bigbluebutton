@@ -137,9 +137,7 @@ const VideoListItem = (props) => {
                 talking={talking}
                 animations={animations}
               >
-                <UserAvatar
-                  user={user}
-                />
+                <UserAvatar user={user} />
               </Styled.WebcamConnecting>
             )
         }

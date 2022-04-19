@@ -8,6 +8,10 @@ const UserAvatar = (props) => {
   const { name } = user;
   const { color } = user;
   const { avatar } = user;
+  const { role } = user;
+
+  const cutName = name.substring(0, 2);
+  const isModerator = role === 'MODERATOR';
 
   return (
     <>
@@ -20,12 +24,14 @@ const UserAvatar = (props) => {
         : (
           <Styled.UserColor
             color={color}
+            isModerator={isModerator}
           >
             <Styled.NameWrapper>
-              <Styled.Name>{name}</Styled.Name>
+              <Styled.Name>{cutName}</Styled.Name>
             </Styled.NameWrapper>
           </Styled.UserColor>
         )}
+      <Styled.UserName>{name}</Styled.UserName>
     </>
   );
 };
@@ -40,5 +46,6 @@ UserAvatar.propTypes = {
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
   }).isRequired,
 };

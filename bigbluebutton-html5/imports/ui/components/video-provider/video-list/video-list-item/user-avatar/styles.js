@@ -1,17 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-import { colorWhite } from '/imports/ui/stylesheets/styled-components/palette';
-
-const pulse = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 white;
-  }
-  70% {
-    box-shadow: 0 0 0 0.5625rem transparent;
-  }
-  100% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-`;
+import styled from 'styled-components';
+import { colorOffWhite, colorWhite } from '/imports/ui/stylesheets/styled-components/palette';
+import { TextElipsis } from '/imports/ui/stylesheets/styled-components/placeholders';
 
 const Name = styled.h1`
   text-align: center;
@@ -34,10 +23,13 @@ const UserColor = styled.div`
   height: 60%;
   width: 45%;
   position: absolute;
-  animation: ${pulse} 1s infinite ease-in;
 
   ${({ color }) => color && `
   background-color: ${color};
+  `}
+
+  ${({ isModerator }) => isModerator && `
+  border-radius: 5%;
   `}
 `;
 
@@ -47,12 +39,25 @@ const UserImage = styled.img`
   width: 45%;
   object-fit: cover;
   position: absolute;
-  animation: ${pulse} 1s infinite ease-in;
+`;
+
+const UserName = styled(TextElipsis)`
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  max-width: 75%;
+  // Keep the background with 0.5 opacity, but leave the text with 1
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1px;
+  color: ${colorOffWhite};
+  padding: 0 .5rem 0 .5rem;
+  font-size: 80%;
 `;
 
 export default {
   Name,
   NameWrapper,
   UserColor,
+  UserName,
   UserImage,
 };
