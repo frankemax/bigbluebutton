@@ -4,7 +4,7 @@ import { checkText } from 'smile2emoji';
 import deviceInfo from '/imports/utils/deviceInfo';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import Icon from '/imports/ui/components/icon/component';
+import Icon from '/imports/ui/components/common/icon/component';
 import EmojiPicker from '/imports/ui/components/emoji-picker/component';
 import TypingIndicatorContainer from './typing-indicator/container';
 import Styled from './styles';
@@ -65,7 +65,7 @@ const messages = defineMessages({
 
 const CHAT_CONFIG = Meteor.settings.public.chat;
 const AUTO_CONVERT_EMOJI = Meteor.settings.public.chat.autoConvertEmoji;
-const EMOJI_BUTTON = Meteor.settings.public.app.enableEmojiButton;
+const EMOJI_BUTTON = Meteor.settings.public.chat.enableEmojiButton;
 
 class MessageForm extends PureComponent {
   constructor(props) {
@@ -263,10 +263,10 @@ class MessageForm extends PureComponent {
     }, callback);
   }
 
-  handleEmojiSelect = (emojiObject) => {
+  handleEmojiSelect(emojiObject) {
     const { message } = this.state;
     this.setState({ message: message + emojiObject.native });
-  };
+  }
 
   emojiEnabled() {
     const { isMobile } = deviceInfo;
@@ -276,31 +276,27 @@ class MessageForm extends PureComponent {
 
   renderEmojiPicker() {
     const { showEmojiPicker } = this.state;
-    const { isMobile } = deviceInfo;
 
-    if (this.emojiEnabled() && showEmojiPicker) {
+    if (showEmojiPicker) {
       return (
-        <EmojiPicker
-          onEmojiSelect={emojiObject => this.handleEmojiSelect(emojiObject)}
-        />
+        <EmojiPicker onEmojiSelect={(emojiObject) => this.handleEmojiSelect(emojiObject)} />
       );
     }
     return null;
   }
 
-  renderEmojiButton = () => {
+  renderEmojiButton() {
     const { showEmojiPicker } = this.state;
 
     if (this.emojiEnabled()) {
       return (
-        <div
-          className={styles.emojiButtonWrapper}
+        <Styled.EmojiButtonIcon
           onClick={() => this.setState({ showEmojiPicker: !showEmojiPicker })}
         >
           <Icon
             iconName="happy"
           />
-        </div>
+        </Styled.EmojiButtonIcon>
       );
     }
     return null;
@@ -325,7 +321,6 @@ class MessageForm extends PureComponent {
       >
         {this.renderEmojiPicker()}
         <Styled.Wrapper>
-          {this.renderEmojiButton()}
           <Styled.Input
             id="message-input"
             innerRef={(ref) => { this.textarea = ref; return this.textarea; }}
@@ -341,6 +336,7 @@ class MessageForm extends PureComponent {
             onKeyDown={this.handleMessageKeyDown}
             async
           />
+          {this.renderEmojiButton()}
           <Styled.SendButton
             hideLabel
             circle

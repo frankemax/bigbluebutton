@@ -2,9 +2,8 @@ import React, { PureComponent } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import logger from '/imports/startup/client/logger';
-import Icon from '/imports/ui/components/icon/component';
-import EmojiPicker from '/imports/ui/components/emoji-picker/component';
 import Styled from './styles';
+import EmojiPicker from '/imports/ui/components/emoji-picker/component';
 
 const EMOJI_BUTTON = Meteor.settings.public.app.enableEmojiButton;
 
@@ -78,9 +77,8 @@ class TextInput extends PureComponent {
 
   renderEmojiPicker() {
     const { showEmojiPicker } = this.state;
-    const { mobile } = browser();
 
-    if (!mobile && showEmojiPicker) {
+    if (showEmojiPicker) {
       return (
         <EmojiPicker
           onEmojiSelect={emojiObject => this.handleEmojiSelect(emojiObject)}
@@ -88,23 +86,6 @@ class TextInput extends PureComponent {
       );
     }
     return null;
-  }
-
-  renderEmojiButton = () => {
-    if (!this.emojiEnabled()) return null;
-
-    const { showEmojiPicker } = this.state;
-
-    return (
-      <div
-        className={styles.emojiButtonWrapper}
-        onClick={() => { this.setState({ showEmojiPicker: !showEmojiPicker }) }}
-      >
-        <Icon
-          iconName="happy"
-        />
-      </div>
-    );
   }
 
   render() {
@@ -119,8 +100,10 @@ class TextInput extends PureComponent {
 
     return (
       <>
-        {!emojiPickerDown ? this.renderEmojiPicker() : null}
         <Styled.Wrapper>
+          <Styled.EmojiButtonIcon
+            iconName="happy"
+          />
           <Styled.TextArea
             maxLength={maxLength}
             onChange={(e) => this.handleOnChange(e)}
@@ -137,7 +120,6 @@ class TextInput extends PureComponent {
             onClick={() => this.handleOnClick()}
           />
         </Styled.Wrapper>
-        {emojiPickerDown ? this.renderEmojiPicker() : null}
       </>
     );
   }

@@ -57,6 +57,10 @@ const TextArea = styled(TextareaAutosize)`
   }
 `;
 
+const EmojiButtonIcon = styled(Button)`
+  
+  `;
+
 const TextInputButton = styled(Button)`
   margin:0 0 0 ${smPaddingX};
   align-self: center;
@@ -76,4 +80,5 @@ export default {
   Wrapper,
   TextArea,
   TextInputButton,
+  EmojiButtonIcon,
 };

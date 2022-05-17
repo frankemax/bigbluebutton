@@ -57,7 +57,6 @@ public:
     allowUserLookup: false
     dynamicGuestPolicy: true
     enableGuestLobbyMessage: true
-    enableEmojiButton: false
     enableLimitOfViewersInWebcam: false
     enableMultipleCameras: true
     # Allow users to open webcam video modal/preview when video is already
@@ -473,6 +472,7 @@ public:
       enabled: true
     moderatorChatEmphasized: true
     autoConvertEmoji: true
+    enableEmojiButton: false
   notes:
     enabled: true
     id: notes

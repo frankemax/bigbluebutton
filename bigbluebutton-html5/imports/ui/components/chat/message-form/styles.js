@@ -84,9 +84,17 @@ const SendButton = styled(Button)`
   }
 `;
 
+const EmojiButtonIcon = styled.div`
+  margin:0 0 0 ${smPaddingX};
+  align-self: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+`;
+
 export default {
   Form,
   Wrapper,
   Input,
   SendButton,
+  EmojiButtonIcon,
 };
