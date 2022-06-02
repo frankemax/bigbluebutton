@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import deviceInfo from '/imports/utils/deviceInfo';
 import CaptionsButtonContainer from '/imports/ui/components/captions/button/container';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import Styled from './styles';
@@ -26,7 +27,6 @@ class ActionsBar extends PureComponent {
       isPollingEnabled,
       isSelectRandomUserEnabled,
       isRaiseHandButtonEnabled,
-      isPresentationDisabled,
       isThereCurrentPresentation,
       allowExternalVideo,
       setEmojiStatus,
@@ -37,6 +37,72 @@ class ActionsBar extends PureComponent {
       setMeetingLayout,
       showPushLayout,
     } = this.props;
+
+    if (deviceInfo.isMobile) {
+      return (
+        <Styled.MobileActionsBarContainer>
+          <ActionsDropdown {...{
+            amIPresenter,
+            amIModerator,
+            isPollingEnabled,
+            isSelectRandomUserEnabled,
+            allowExternalVideo,
+            handleTakePresenter,
+            intl,
+            isSharingVideo,
+            stopExternalVideoShare,
+            isMeteorConnected,
+            setMeetingLayout,
+            presentationIsOpen,
+            showPushLayout,
+          }}
+          />
+          {isCaptionsAvailable && <CaptionsButtonContainer {...{ intl }} />}
+          <AudioControlsContainer />
+          {enableVideo
+            ? (
+              <JoinVideoOptionsContainer />
+            )
+            : null}
+          <PresentationOptionsContainer
+            presentationIsOpen={presentationIsOpen}
+            setPresentationIsOpen={setPresentationIsOpen}
+            layoutContextDispatch={layoutContextDispatch}
+            hasPresentation={isThereCurrentPresentation}
+            hasExternalVideo={isSharingVideo}
+            hasScreenshare={hasScreenshare}
+          />
+          {isRaiseHandButtonEnabled
+            ? (
+              <Styled.RaiseHandButton
+                icon="hand"
+                label={intl.formatMessage({
+                  id: `app.actionsBar.emojiMenu.${
+                    currentUser.emoji === 'raiseHand'
+                      ? 'lowerHandLabel'
+                      : 'raiseHandLabel'
+                  }`,
+                })}
+                accessKey={shortcuts.raisehand}
+                color={currentUser.emoji === 'raiseHand' ? 'primary' : 'default'}
+                data-test={currentUser.emoji === 'raiseHand' ? 'lowerHandLabel' : 'raiseHandLabel'}
+                ghost={currentUser.emoji !== 'raiseHand'}
+                emoji={currentUser.emoji}
+                hideLabel
+                circle
+                size="lg"
+                onClick={() => {
+                  setEmojiStatus(
+                    currentUser.userId,
+                    currentUser.emoji === 'raiseHand' ? 'none' : 'raiseHand',
+                  );
+                }}
+              />
+            )
+            : null}
+        </Styled.MobileActionsBarContainer>
+      );
+    }
 
     return (
       <Styled.ActionsBar

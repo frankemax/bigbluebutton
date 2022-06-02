@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { defineMessages } from 'react-intl';
 import { withModalMounter } from '/imports/ui/components/common/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
+// import audioCaptionsService from '/imports/ui/components/audio/captions/service';
 import ExternalVideoModal from '/imports/ui/components/external-video-player/modal/container';
 import RandomUserSelectContainer from '/imports/ui/components/common/modal/random-user/container';
 import LayoutModalContainer from '/imports/ui/components/layout/modal/container';
@@ -90,6 +91,14 @@ const intlMessages = defineMessages({
     id: 'app.actionsBar.actionsDropdown.propagateLayoutLabel',
     description: 'Label for propagate layout button',
   },
+  startCaption: {
+    id: 'app.audio.captions.button.start',
+    description: 'Start audio captions',
+  },
+  stopCaption: {
+    id: 'app.audio.captions.button.stop',
+    description: 'Stop audio captions',
+  },
   layoutModal: {
     id: 'app.actionsBar.actionsDropdown.layoutModal',
     description: 'Label for layouts selection button',
@@ -139,6 +148,9 @@ class ActionsDropdown extends PureComponent {
       hidePresentation,
       setMeetingLayout,
       showPushLayout,
+      isMobile,
+      handleLeaveAudio,
+      amIModerator,
     } = this.props;
 
     const {
@@ -152,6 +164,58 @@ class ActionsDropdown extends PureComponent {
     } = intl;
 
     const actions = [];
+
+    if (isMobile) {
+      // More actions
+      actions.push({
+        dataTest: 'More Actions',
+        label: 'More Actions',
+        key: 'MoreActions',
+        onClick: () => {},
+        disabled: true,
+        divider: true,
+      });
+
+      actions.push({
+        icon: 'upload-presentation',
+        dataTest: 'shareScreen',
+        label: 'Share your screen',
+        key: 'shareScreen',
+        onClick: () => {},
+      });
+
+      actions.push({
+        icon: 'volume_level_2',
+        dataTest: 'leaveAudio',
+        label: 'Leave Audio',
+        key: 'leaveAudio',
+        onClick: () => handleLeaveAudio(),
+      });
+
+      /*actions.push(
+        {
+          key: 'audioCaptions',
+          dataTest: 'audioCaptions',
+          icon: audioCaptionsActive ? 'closed_caption' : 'closed_caption_off',
+          label: intl.formatMessage(
+            audioCaptionsActive ? intlMessages.stopCaption : intlMessages.startCaption,
+          ),
+          onClick: () => audioCaptionsService.setAudioCaptions(!audioCaptionsActive),
+        },
+      );*/
+    }
+
+    // Moderator actions
+    if (amIModerator && isMobile) {
+      actions.push({
+        dataTest: 'moderatorLabel',
+        label: 'Moderator Actions',
+        key: 'moderatorLabel',
+        onClick: () => {},
+        disabled: true,
+        divider: true,
+      });
+    }
 
     if (amIPresenter && !hidePresentation) {
       actions.push({
@@ -187,7 +251,7 @@ class ActionsDropdown extends PureComponent {
       })
     }
 
-    if (!amIPresenter) {
+    if (!amIPresenter && amIModerator) {
       actions.push({
         icon: "presentation",
         label: formatMessage(takePresenter),
@@ -288,8 +352,7 @@ class ActionsDropdown extends PureComponent {
     const children = availablePresentations.length > 1 && amIPresenter
       ? availablePresentations.concat(availableActions) : availableActions;
 
-    if ((!amIPresenter && !amIModerator)
-      || availableActions.length === 0
+    if (availableActions.length === 0
       || !isMeteorConnected) {
       return null;
     }

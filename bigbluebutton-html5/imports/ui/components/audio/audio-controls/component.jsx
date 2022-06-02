@@ -138,10 +138,13 @@ class AudioControls extends PureComponent {
       enableDynamicAudioDeviceSelection = true;
     }
 
-    const _enableDynamicDeviceSelection = enableDynamicAudioDeviceSelection
-      && !isMobile;
+    const _enableDynamicDeviceSelection = enableDynamicAudioDeviceSelection;
 
     if (inAudio) {
+      if (isMobile) {
+        return null;
+      }
+
       if (_enableDynamicDeviceSelection) {
         return AudioControls.renderLeaveButtonWithLiveStreamSelector(this
           .props);
@@ -168,6 +171,8 @@ class AudioControls extends PureComponent {
       isViewer,
       isPresenter,
     } = this.props;
+
+    const { isMobile } = deviceInfo;
 
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
       : intl.formatMessage(intlMessages.muteAudio);
@@ -205,9 +210,7 @@ class AudioControls extends PureComponent {
           />
         ) : null}
         {showMute && isVoiceUser ? toggleMuteBtn : null}
-        {
-          this.renderJoinLeaveButton()
-        }
+        {this.renderJoinLeaveButton()}
       </Styled.Container>
     );
   }

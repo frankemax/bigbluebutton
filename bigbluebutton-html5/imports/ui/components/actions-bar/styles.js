@@ -87,10 +87,17 @@ const RaiseHandButton = styled(Button)`
    `}
 `;
 
+const MobileActionsBarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
 export default {
   ActionsBar,
   Left,
   Center,
   Right,
   RaiseHandButton,
+  MobileActionsBarContainer,
 };
